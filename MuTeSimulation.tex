@@ -65,9 +65,9 @@ abstract here
 \section{Introduction}\label{sec:introduction}
 The muography is an emerging technology based on measuring the attenuation of a muon flux that crosses geological and anthropic structures \cite{Kaiser2019}. Recently, we are witnessing several new successful academic and commercial applications such as detection of hidden materials in containers \cite{BlanpiedEtal2015}, archaeological building scanning \cite{MorishimaEtal2017, GomezEtal2016}, nuclear plant inspection \cite{FujiiEtal2013}, nuclear waste monitoring, underground cavities \cite{SaracinoEtal2017}, the overburden of railway tunnels \cite{ThompsonEtal2019} and volcanology (\cite{TanakaOlah2019} and references therein). In Colombia, more than a dozen active volcanoes, which represent significant risks to the nearby population \cite{Cortes2016, Agudelo2016, Munoz2017}, motivate research groups to explore this technique \cite{AsoreyEtal2017B, SierraPortaEtal2018, PenaRodriguezEtal2018, GuerreroEtal2019, ParraAvila2019}.  
 
-Atmospheric muons originate from the decay of charged pions and kaons produced through the interaction of cosmic rays (\textsl{CRs}) with the nuclei of the Earth's upper atmosphere. The energy of these particles comprises a broad spectrum, but only those muons with the highest energies ($\sim 100$GeV) can cross hundreds of meters of rock \cite{MarteauEtal2012}. Besides, they are the most abundant charged particles that reach the sea level due to their high penetrating power (they only lose around $2$GeV when crossing the whole atmosphere) \cite{MarteauEtal2012}. Also, the muons are easily detectable concerning other particles, using different techniques based on ionization, excitation, and the Cerenkov effect \cite{MarteauEtal2012}. 
+Atmospheric muons originate from the decay of charged pions and kaons produced through the interaction of cosmic rays (\textsl{CRs}) with the nuclei of the Earth's upper atmosphere. The energy of these particles comprises a broad spectrum, but only those muons with the highest energies ($\sim 100$\textsl{GeV}  ) can cross hundreds of meters of rock \cite{MarteauEtal2012}. Besides, they are the most abundant charged particles that reach the sea level due to their high penetrating power (they only lose around $2$\textsl{GeV}   when crossing the whole atmosphere) \cite{MarteauEtal2012}. Also, the muons are easily detectable concerning other particles, using different techniques based on ionization, excitation, and the Cerenkov effect \cite{MarteauEtal2012}. 
 
-Hodoscopes are the most common detectors implemented for volcano muography.  They consist of two or several panels to identify the particle trajectories in terms of the zenith and azimuth angles. Projects like \textsl{MU-RAY} \cite{AnastasioEtal2013}, \textsl{ToMuVol} \cite{CarloganuEtal2013}, and \textsl{DIAPHANE} \cite{LesparreEtal2010} employ hodoscopes based on different detection technologies: emulsion plate, Resistive Plate Chambers, Micromegas, Multi-Wire Proportional Cameras, and scintillators, to mention the most common. Each of these techniques has advantages and disadvantages. The emulsion plate detectors \cite{MorishimaEtal2017, Nagamine2016} provide an excellent spatial resolution of the order of sub-microns, are passive, and easy to handle. On the other side, they have short lifetimes, and it is not possible to discriminate the time-stamp of dynamic phenomena, because the recorded events accumulate in the plates. The gas detectors as Resistive Plate Chambers \cite{SehgalEtal2016, Fehr2012}, Micromegas \cite{BouteilleEtal2016}, and Multi-Wire Proportional Cameras (\textsl{MWPCs}) \cite{OlahEtal2018}, allow obtaining short traces of the detected particles with a spatial resolution around the microns. However, since these detectors operate outdoors, the gain of the electrodes depends highly on environmental variables such as pressure and temperature. Besides, they require high voltage for optimal operation, which results in higher power consumption compared with emulsion detectors. Finally, there are scintillation detectors such as the segmented \cite{FujiiEtal2013, LesparreEtal2012, TanakaEtal2009} and continuous \cite{NagamineEtal1995, AguiarEtal2015, TangEtal2016},  that are more robust since these do not have a high mechanical variation with environmental conditions, are easily constructed at a much lower cost than gaseous and emulsion detectors. Nevertheless, their spatial resolution is not as good as the other detectors since the segments generally used are of the order of centimeters.
+Hodoscopes are the most common detectors implemented for volcano muography.  They consist of two or several panels to identify the particle trajectories in terms of the zenith and azimuth angles. Projects like \textsl{MU-RAY} \cite{AnastasioEtal2013}, \textsl{ToMuVol} \cite{CarloganuEtal2013}, and \textsl{DIAPHANE} \cite{LesparreEtal2010} employ hodoscopes based on different detection technologies: emulsion plate, Resistive Plate Chambers, Micromegas, Multi-Wire Proportional Cameras, and scintillators, to mention the most common. Each of these techniques has advantages and disadvantages. The emulsion plate detectors \cite{MorishimaEtal2017, Nagamine2016} provide an excellent spatial resolution of the order of sub-microns, are passive, and easy to handle. On the other side, they have short lifetimes, and it is not possible to discriminate the time-stamp of dynamic phenomena, because the recorded events accumulate in the plates. The gas detectors as Resistive Plate Chambers \cite{SehgalEtal2016, Fehr2012}, Micromegas \cite{BouteilleEtal2016}, and Multi-Wire Proportional Cameras \cite{OlahEtal2018}, allow obtaining short traces of the detected particles with a spatial resolution around the microns. However, since these detectors operate outdoors, the gain of the electrodes depends highly on environmental variables such as pressure and temperature. Besides, they require high voltage for optimal operation, which results in higher power consumption compared with emulsion detectors. Finally, there are scintillator detectors such as the segmented \cite{FujiiEtal2013, LesparreEtal2012, TanakaEtal2009} and continuous \cite{NagamineEtal1995, AguiarEtal2015, TangEtal2016},  that are more robust since these do not have a high mechanical variation with environmental conditions, are easily constructed at a much lower cost than gaseous and emulsion detectors. Nevertheless, their spatial resolution is not as good as the other detectors since the segments generally used are of the order of centimeters.
 
 This paper presents the computational \textsl{Geant4} modeling of a hybrid Muon Telescope (\textsl{MuTe}) and the estimation of its response under a muon flux at $956$\,m a.s.l at Bucaramanga-Colombia. The model includes the materials, geometries, dimensions and the photo-sensitive devices of the detectors (see details in sections \ref{sec:hodoscope-response} and \ref{sec:wcd-response}). 
 
@@ -81,7 +81,7 @@ This paper presents the design, modeling and response of the \textsl{MuTe} detec
 \section{The MuTe instrument design}
 The Muon Telescope (sketched in figure \ref{fig:mute-detector}) is a hybrid detector that combines two technologies: a two-panel Scintillator Bars Hodoscope (\textsl{SBH}),  and a Water Cerenkov Detector (\textsl{WCD}), to filter most of the backward \& background noise \cite{NishiyamaMiyamotoNaganawa2014, KusagayaTanaka2015, NishiyamaEtal2016, GomezEtal2017}. This detector is capable of estimating not only the incoming  directions but also a range of energies of the impacting muons \cite{AsoreyEtal2017B}.
   
- The panels of the hodoscope consist in an array of $30$ vertical $\times 30$ horizontal scintillation bars, of $4$cm wide, $2$cm high and $120$cm long, providing a resolution of $900$ pixels of $4$cm $\times 4$cm each one. This array yields a detection surface of $14.400$cm$^2$. The \textsl{WCD} is a metal purified water container of $120$cm side, coated inside by the Tyvek with a photo-multiplier tube (\textsl{PMT}) on top to detect the Cerenkov photons (see figure \ref{fig:mute-detector}).
+ The panels of the hodoscope consist in an array of $30$ vertical $\times 30$ horizontal scintillator bars, of $4$cm wide, $2$cm high and $120$cm long, providing a resolution of $900$ pixels of $4$cm $\times 4$cm each one. This array yields a detection surface of $14.400$cm$^2$. The \textsl{WCD} is a metal purified water container of $120$cm side, coated inside by the Tyvek with a photo-multiplier tube (\textsl{PMT}) on top to detect the Cerenkov photons (see figure \ref{fig:mute-detector}).
 
 \begin{figure}
     \centering
@@ -96,7 +96,7 @@ The Muon Telescope (sketched in figure \ref{fig:mute-detector}) is a hybrid dete
 %%%% SECTION 2 %%%%
 %%%%%%%%%%%%%%%%%%%
 \subsection{Hodoscope response to cosmic background radiation}\label{sec:hodoscope-response}
-The response of the hodoscope bars refers to the signal produced in the photo-sensor when a minimum ionizing particle (\textsl{MIP}) crosses each scintillation bar. As shown in figure \ref{esquema_centelladora}, charged particles crossing the bars produce scintillation photons, absorbed, re-emitted, and guided to the photo-sensor device by a wavelength shifting (\textsl{WLS}) multi-cladding fiber. 
+The response of the hodoscope bars refers to the signal produced in the photo-sensor when a minimum ionizing particle (\textsl{MIP}) crosses each scintillator bar. As shown in figure \ref{esquema_centelladora}, charged particles crossing the bars produce scintillation photons, absorbed, re-emitted, and guided to the photo-sensor device by a wavelength shifting (\textsl{WLS}) multi-cladding fiber. 
 
 The bars of \textsl{MuTe} are Dow Styron $663$, made of Polystyrene, doped with $1$\% \textsl{PPO} and $0.03$\% \textsl{POPOP} \cite{PlaBrossRykalin2003}, which place a photon emission peak around the $420$nm wavelength. These bars, coated with $85$\% Polystyrene and $15$\% TiO$_2$ of $0.25$mm thick, have a hole of $\sim 3$mm diameter at its center,  where there is \textsl{WLS} multi-cladding fiber (reference BCF92 of Saint Gobain). The fiber diameter is $1$mm, with a core made of Polymethyl methacrylate, having the first clad of Polyethylene, and the second one of Fluorinated Polyethylene \cite{SaintGobain2017}. A mechanical coupling joins the fiber with a silicon photo-multiplier (\textsl{SiPM} S13360-1350CS of Hamamatsu), with a photo-sensitive surface of $1.3$cm $\times 1.3$cm of $2668$ pixels \cite{Hamamatsu2018}. This device has a spectral detection range from $270$ to $900$nm, with its maximum sensitivity around $450$nm.
 
@@ -113,67 +113,60 @@ Next Sections will discuss the \textsl{Geant4} simulation model of the bars, as 
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{The scintillator bar model} \label{sec:bar-simulation}%Adriana
-The scintillator bar \textsl{Geant4} geometric model is a parallelepiped of $4$ cm wide, $2$cm high, $120$cm long and $0.25$mm. We incorporate to this geometry a coating material --made of $15$\% of TiO$_2$ and $85$\% of polystyrene-- with a reflectivity of 1. The scintillating bar is polystyrene, with an index of refraction, $n =1.50$, and a photon absorption length of $5.5$cm. There is a tunnel of $119.5$cm long and $1.8$mm diameter through the main axis of the bar, where we place a multi-cladding \textsl{WLS} fiber. This looseness of $0.5$cm at the end of the tunnel --filled with air to make the model as real as possible-- avoids the escape of photons.
+The scintillator bar \textsl{Geant4} geometric model is a parallelepiped of $4$ cm wide, $2$cm high, $120$cm long and $0.25$mm. We incorporate to this geometry a coating material --made of $15$\% of TiO$_2$ and $85$\% of polystyrene-- with a reflectivity of $1$. The scintillating bar is polystyrene, with an index of refraction, $n =1.50$, and a photon absorption length of $5.5$cm. There is a tunnel of $119.5$cm long and $1.8$mm of diameter, drilled through the main axis of the bar, where we place a multi-cladding \textsl{WLS} fiber. This looseness of $0.5$cm at the end of the tunnel --filled with air to make the model as real as possible-- avoids the escape of photons.
 
-A solid cylinder of poly-methyl methacrylate, with $119.45$cm long and $0.5$mm radius, models the fiber. This configuration leaves a space of $0.05$cm inside the tunnel to locate the \textsl{SiPM}. The first clad of this fiber was made as a cylindrical shell of polyethylene, with an internal radius of 0.5 mm and an external radius of 0.515 mm. The second one is a shell of fluorinated polyethylene with an internal radius of 0.515 mm and an external radius of 0.530 mm. Both coatings have the same fiber length.
+A solid cylinder of poly-methyl methacrylate, with $119.45$cm long and $0.5$mm radius, models the fiber. This configuration leaves a space of $0.05$cm inside the tunnel to locate the \textsl{SiPM}. The first clad of this fiber is a cylindrical shell of polyethylene, with an internal radius of $0.5$ mm and an external radius of $0.515$ mm. The second is a shell of fluorinated polyethylene, with an internal radius of $0.515$ mm and an external radius of $0.530$ mm. Both coatings have the same fiber length.
 
 A square surface of a side of $1.3$mm, attached to one of the fiber, represents the \textsl{SiPMs}. The simulations allow to set the \textsl{SiPM} photon detection efficiency, which depends on the wavelength ($\lambda$) of the photon hitting the \textsl{SiPM}, where the highest probability of photo-electrons (\textsl{pe}) generation is around $470$nm \cite{Hamamatsu2018}. 
 
-The simulation results of the scintillator bar response to charged particles, of different energy, in figure \ref{fig:mips}. The histogram of the number of photo-electrons generated by 10.000 electrons of $20$MeV, $100$MeV and $500$MeV, have the same profile as those corresponding to the $10000$ muons of $1$GeV, $10$GeV and $100$GeV. Therefore, this detector is not able to distinguish muons from electrons. This is the reason why it is necessary to use the \textsl{WCD} to select the muon events from noise. 
+The simulation results of the scintillator bar response to charged particles of different energy, in figure \ref{fig:mips}. The histogram of the number of photo-electrons generated by 10.000 electrons of $20$\textsl{MeV}, $100$\textsl{MeV}   and $500$\textsl{MeV} have the same profile as those corresponding to the $10000$ muons of $1$\textsl{GeV}, $10$\textsl{GeV}   and $100$\textsl{GeV}. Therefore, our detector is not able to distinguish muons from electrons, and it is necessary to use the \textsl{WCD} to select the muon events from noise. 
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.24]{Figures/MIPS.png}
-    \caption{Scintillator bar response to \textsl{MIPs} of different energy. As expected, both electrons and muons generate the same histogram profile, since the energy loss of all those particles is $\sim 2$MeV. This result validates the code used and therefore supports the veracity of the simulations of the scintillator bar.
-    To obtain those histograms we performed the interaction of 10000 particles (of each energy and type) with the bar. The average number of photo-electrons is around $40$\textsl{pe} for all the particles, i.e. this detector is not able to distinguish muons from noise.}
+    \caption{Scintillator bar response to \textsl{MIPs} of different energy. As expected, both electrons and muons generate the same histogram profile, since the energy loss of all those particles is $\sim 2$\textsl{MeV}. This result validates the code used and therefore supports the veracity of the simulations of the scintillator bar.
+    To obtain those histograms, we performed the interaction of 10000 particles (of each energy and type) with the bar. The average number of photo-electrons is around $40$\textsl{pe} for all the particles, i.e. this detector is not able to distinguish muons from noise.}
     \label{fig:mips}
 \end{figure}
 
-The mean value of those histograms is around 40 pe. For muons with energy of the order of GeV, the stopping power in the polystyrene is  $\frac{dE}{d\varrho_\mathrm{pol}}\approx 2 \,\text{MeV cm}^2\text{/g}$ \cite{MichaelEtal2008}. Since those particles pass through the bar vertically, the distance traveled is $l_\mathrm{pol}=1$ cm. Hence, $40$\textsl{pe} is equivalent to $2.08$MeV of energy deposited in the bar ($E_\mathrm{d}$), according to equation \ref{energy_deposited}, where $\rho_\mathrm{pol}=1.04$ g/cm$^3$ is the polystyrene density. 
+The mean value of those histograms is around $40$pe. For muons with energy of the order of   \textsl{GeV}, the stopping power in the polystyrene is  $\frac{dE}{d\varrho_\mathrm{pol}}\approx 2 \,\text{  \textsl{MeV}  cm}^2\text{/g}$ \cite{MichaelEtal2008}. Since those particles pass through the bar vertically, the distance traveled is $l_\mathrm{pol}=1$ cm. Hence, $40$\textsl{pe} is equivalent to $2.08$\textsl{MeV}  of energy deposited in the bar ($E_\mathrm{d}$), according to equation \ref{energy_deposited}, where $\rho_\mathrm{pol}=1.04$ g/cm$^3$ is the polystyrene density. 
 
 \begin{equation}
 \label{energy_deposited}
 \begin{split}
-    E_\mathrm{d} &= 2 \,\text{MeV cm}^2\text{/g} \times \varrho_\mathrm{pol} \\
-    &= 2 \,\text{MeV cm}^2\text{/g} \times l_\mathrm{pol} \times \rho_\mathrm{pol}\\
-    &= \text{2.08} \, \text{MeV}.
+    E_\mathrm{d} &= 2 \,\text{  \textsl{MeV}  cm}^2\text{/g} \times \varrho_\mathrm{pol} \\
+    &= 2 \,\text{  \textsl{MeV}  cm}^2\text{/g} \times l_\mathrm{pol} \times \rho_\mathrm{pol}\\
+    &= \text{2.08} \, \text{  \textsl{MeV} }.
 \end{split}
 \end{equation}.
 
-The following simulations were performed with 3 GeV muons, as they are the most likely at the level of the observation point on the Cerro Machín (\textsl{CM}) volcano. That is, from now on the \textsl{MIP} refers to this particle.
+The following simulations are for muons with $3$\textsl{GeV} which are the most frequent at the level of our observation point on the Cerro Machín (\textsl{CM}) volcano. That is, from now on the \textsl{MIP} refers to this particle with this energy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSUBSECTION %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Attenuation of the photons in the fiber}%Adriana
-In order to determine if there is an attenuation in the number of photons that travel through the fiber, a simulation that counts the number of \textsl{pe} generated in the \textsl{SiPM}, when the muon impacts in the normal direction to the bar and at different points, was performed. The initial position of the particle is chosen in such a way that it hits the center of the detection pixels defined for the panels of the hodoscope. For example, if the muon impacts on the center of the first pixel, $P_{1,1}$, its initial position is defined at 2 cm from the \textsl{SiPM}. In this way, the initial position of the muon to hit the midpoint of each pixel is defined as
-\begin{equation}
-\label{positions}
-x_p = (2 + 4p)\mathrm{cm} \,\,\,\,\,\,\,\,\,\, y_p = 1\mathrm{cm}  \,\,\,\,\,\,\,\,\,\, z_p = 2\mathrm{cm},
-\end{equation}
-with $ y_p $ and $ z_p $ fixed, and $ p = 0,1,2, ..., 29$.
+We can estimate the attenuation of the fiber by counting the number of \textsl{pe} at the \textsl{SiPM}, and comparing it to the number of photons generated by vertical impacting muons at different position of the scintillator bar. 
 
-The results of this simulation in figure \ref{atenuacion_barra}, where the fit of the curve is associated with a double exponential function $F(x)$ given by 
+Figure \ref{atenuacion_barra} the results of this simulation, where a double exponential function 
 \begin{equation}
 F(x)= \text{0.468} e^{-0.003(2-x)} + \text{0.531}e^{0.005(2-x)},
 \end{equation}
-where $x$ represents the impact position of the muon with respect to the \textsl{SiPM}. 
-
+fits the data with $x$ representig the position  with respect to the \textsl{SiPM} of the impacting muon. 
 \begin{figure}[h!]
     \centering
         \includegraphics[scale=0.41]{Figures/atenuacion_barra_2.png}
-   \caption{Number of photo-electrons with respect to the hit position of the muon in the bar. At $2$cm of the \textsl{SiPM} there are $40$\textsl{pe} on average and at $118$cm there are $37$\textsl{pe}. The difference of \textsl{pe} at the opposite end to the \textsl{SiPM} is approximately $7$\% with respect to the position closest to it. A double exponential function fits the decrease of the simulated data with the hit position $x$. This behavior can be associated with the attenuation of the photons that travel in the fiber.}\label{atenuacion_barra}
+   \caption{The number of photo-electrons concerning the position of the impacting muon in the bar. At $2$cm of the \textsl{SiPM} there are $40$\textsl{pe} on average and at $118$cm, there are $37$\textsl{pe}. The difference in \textsl{pe} between the two fiber ends is approximately $7$\%. A double exponential function fits the simulated data and this behavior can be associated with the attenuation of the photons traveling through the fiber.}\label{atenuacion_barra}
 \end{figure}
 
 The ends of the scintillator bar and the total number of \textsl{pe} produced in each one presents a slight difference. Having then that at $2$cm of the \textsl{SiPM} an average of $40$\textsl{pe} is produced while at $118$cm $37$\textsl{pe} is produced. From this simulation, the attenuation given is around $7$\%, that is agree with the experimental results given by figure \ref{experimental attenuation}. This difference could be associated with the attenuation of the photons that travel along the fiber.
 
-The \textsl{MIP} detection with scintillator bar generates a number of \textsl{pe} in the \textsl{SiPM} at a time $t$. From the top of the figure \ref{cumulative} it can be noticed that 40\% of the total photo-electrons occurred in the first 10 ns when the muon has entered at 2 cm of the SiPM, while in the bottom of the figure \ref{cumulative} when the muon has entered at 118 cm of the SiPM, only 12 \% of the \textsl{pe} is produced in the same time. In both cases, the total number of \textsl{pe} is reached around $80$ns, that is, the average time necessary to collect the total of \textsl{pe} produced by the passage of a muon, at any point of impact in the bar.
-
+The \textsl{MIP} detection with scintillator bar generates a number of \textsl{pe} in the \textsl{SiPM} at a time $t$. From the top of the figure \ref{cumulative} it can be noticed that $40$\% of the total photo-electrons occurred in the first 10 ns when the muon has entered at $2$cm of the \textsl{SiPM},   while in the bottom of the figure \ref{cumulative} when the muon has entered at $118$cm of the \textsl{SiPM},   only 12 \% of the \textsl{pe} is produced in the same time. In both cases, the total number of \textsl{pe} is reached around $80$ns, that is, the average time necessary to collect the total of \textsl{pe} produced by the passage of a muon, at any point of impact in the bar.
 \begin{figure}
     \centering
     \includegraphics[scale=0.8]{Figures/cumulativo_1.pdf}
     \includegraphics[scale=0.8]{Figures/cumulativo_2.pdf}
-    \caption{Cumulative number of photo-electrons produced when a \textsl{MIP} hit the bar at $2$cm from the  \textsl{SiPM} (top) and at $118$cm (bottom). It can be noticed that $40$\% of the Total \textsl{pe} occurred in the first $10$ns when the muon has entered at $2$cm of the \textsl{SiPM}, while, when the muon has entered at 118 cm of the SiPM, only $12$\% of the \textsl{pe} is produced in the same time. In both cases, the total number of \textsl{pe} is reached around $80$ns, that is, the average time necessary to collect the total of \textsl{pe} produced by the passage of a muon, at any point of impact in the bar.}
+    \caption{Cumulative number of photo-electrons produced when a \textsl{MIP} hit the bar at $2$cm from the  \textsl{SiPM} (top) and at $118$cm (bottom). It can be noticed that $40$\% of the Total \textsl{pe} occurred in the first $10$ns when the muon has entered at $2$cm of the \textsl{SiPM}, while, when the muon has entered at 118 cm of the \textsl{SiPM},   only $12$\% of the \textsl{pe} is produced in the same time. In both cases, the total number of \textsl{pe} is reached around $80$ns, that is, the average time necessary to collect the total of \textsl{pe} produced by the passage of a muon, at any point of impact in the bar.}
     \label{cumulative}
 \end{figure}
 
@@ -181,7 +174,10 @@ The \textsl{MIP} detection with scintillator bar generates a number of \textsl{p
 %%%%%%% SUBSUBSECTION %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{ \textsl{SiPM} and fiber coupling}%Adriana
-To guarantee an ideal coupling between the \textsl{SiPM} and the fiber, it is necessary to know the number of generated photo-electrons and compare it with a non-ideal coupling. The \textsl{Geant4} model allows estimating these results. Therefore, the ideal coupling is defined as the fiber and the \textsl{SiPM} are side by side without space between them, so all the traveling photons at the edge of the fiber impacts directly in the \textsl{SiPM}. In this case, the passage of the \textsl{MIPs} in the bar was simulated at a distance of $2$\,cm from the \textsl{SiPM} position. As shown above, the obtained average number of photo-electrons, for an ideal coupling, is $40$pe. A non-ideal coupling was generated with a distance of 1.15 mm between the  \textsl{SiPM} and the fiber. The space between them is full of air. In this case, the number of \textsl{pe} is reduced to $8$, representing a loss of 80\% of the signal compared to the ideal case as shown in figure \ref{coupling}.
+The \textsl{Geant4} model allows estimating how good is the coupling \textsl{SiMP}-fiber. We define the ideal \textsl{SiMP}-fiber when they are side by side, without any space between them. Thus, all the traveling photons at the edge of the fiber impact directly on the \textsl{SiPM}. As shown above, the obtained average number of photo-electrons, for an ideal coupling, is $40$pe. A non-ideal coupling has space (filled with air) of $1.15$mm between the \textsl{SiPM} and the fiber. The number of \textsl{pe} is reduced to $8$, representing a loss of 80\% of the signal compared to the ideal case, as shown in figure \ref{coupling}.
+%
+%voy por aqui
+%
 \begin{figure}
     \centering
     \includegraphics[scale=0.41]{Figures/coupling.png}
@@ -211,7 +207,7 @@ In addition, to have a larger detection area, we must quantify the attenuation i
 To study the response of each scintillator bar, the stability of the \textsl{SiPM} to temperature changes was first studied. For this purpose, a temperature controlled box was built. This box was regulated by a TEC1-12706 thermoelectric peltier, mounted on an aluminum frame where the mechanical coupling with the \textsl{SiPM} was located. 
 This structure was introduced in a thermally insulated box. The control system consist of two sensors: one to vary the temperature and the other one to measure the temperature of the \textsl{SiPM}. To define a target temperature, measurements of the time the system was set up were made. The measurements were taken with the following temperatures: $10^{\circ}$C, $20^{\circ}$C,  $40^{\circ}$C and $50^{\circ}$C. It was concluded that the time required to reach the target temperature was around 600s $\pm$ 50s.
 
-The \textsl{SiPM} power supply was then mounted and the DarkCurrent \cite{Renker2006} was measured in the range of $40$V to $60$V. This was done for $5$ target temperatures, $0^{\circ}$C, $10^{\circ}$C, $20^{\circ}$C, $30^{\circ}$C, $40^{\circ}$C, $50^{\circ}$C for each temperature. There was a curve from which the rupture voltage was calculated, the relationship between the rupture voltage and the temperature in figure \ref{temperature}. From this was determined that for each $10^{\circ}$C the breaking voltage of the \textsl{SiPM} varies 0, 45V.
+The \textsl{SiPM} power supply was then mounted and the DarkCurrent \cite{Renker2006} was measured in the range of $40$V to $60$V. This was done for $5$ target temperatures, $0^{\circ}$C, $10^{\circ}$C, $20^{\circ}$C, $30^{\circ}$C, $40^{\circ}$C, $50^{\circ}$C for each temperature. There was a curve from which the rupture voltage was calculated, the relationship between the breakdown voltaje and the temperature can be seen in the figure \ref{temperature}. From this was determined that for each $10^{\circ}$C,  the breakdown voltage of the \textsl{SiPM} change 0,45V.
 
 \begin{figure}[h!] %Rocal
     \centering
@@ -237,18 +233,33 @@ To generate the trigger signal, small scintillators with rectangular cross-secti
 
 After performing a calibration with respect to the noise, $10000$ reference pulses were taken in the three positions of interest. In the position opposite to \textsl{SiPM}, the fiber was cut to $45^{\circ}$ to maximize photon leakage and avoid secondary pulses by reflections at the end of the fiber. However, reflections are practically inevitable.
 
-The coinciding system had an angle $\theta$ for this configuration of $106.26^{\circ}$ as shown in the figure \ref{coincidencia_barras}. The frequency of events per minute that was measured experimentally with the aid of an oscilloscope was $10\pm1$ per minute for $16$cm$^2$. With these data was estimate that were detected 0.62 particles$\times$min$\times$cm$^2$. \\
+The coinciding system had an angle $\theta$ for this configuration of $106.26^{\circ}$ as shown in the figure \ref{coincidencia_barras}. The frequency of events per minute that was measured experimentally with the aid of an oscilloscope was $10\pm1$ per minute for $16$cm$^2$. With these data was estimate that were detected 0.62 particles$\times$min$\times$cm$^2$. 
 
 
 
 \begin{figure}[h!] %Rocal
-
     \centering
         \includegraphics[scale=0.49]{Figures/atenuacion_esperimental.png}
    \caption{Porcentual attenuation from scintillators system.} \label{experimental attenuation}
 \end{figure}
 
----- Explicación media de carga depositada -----  en progreso----
+
+Con el propósito de tener referencia para las simulaciones y análisis de datos \textit{offline} para el hodoscopio de MuTe, se planteo la necesidad de cuantificar la atenuación. Para esto usamos los pulsos de referencia calculado el pulso promedio en cada set de datos, para las tres posiciones de estudio. Se presentan los pulsos promedio, en la figura \ref{Figura62} son representados con un bin en el eje x de 8ns en  unidades de tiempo.
+
+Para determinar el pulso promedio, se tomó cada muestra de 10.000 pulsos como una matriz, donde cada pulso corresponde a un vector columna. Luego para cada fila se calculó el promedio y su desviación estándar $\sigma$. Seguido se graficó el pulso promedio con sus desviaciones para las tres posiciones, en la figura \ref{Figura62} observamos que las desviaciones son hasta del 30\% de la amplitud total y se cruzan. Para un único evento sera difícil discriminar con certeza la posición de incidencia sobre la barra.
+
+La diferencia porcentual de la carga correspondiente a cada pulso promedio nos permite inferir un porcentaje de atenuación al normalizar los valores y comparar con un ajuste exponencial que coincide con una señal atenuada. La función utilizada fue $f(x)=0.88+a*exp(-x*b)$ con los parámetros $a$=0.126652, $b$= 0.0205653 con un error de +/- 0.003444 (2.72\%) y +/- 0.001065 (5.18\%) respectivamente.
+
+En este caso la diferencia entre el valor de carga media depositada en el extremo más alejado del SiPM y el más cercano es de un 11\%. Es decir, si la carga media depositada por un muon o electrón cerca del SiPM es de 1, la carga media depositada por la misma partícula en el extremo opuesto mas alejado es 11\% menor y representa la máxima atenuación en este sistema de detección activo de 120 cm de largo.
+
+
+
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -271,7 +282,7 @@ From the bar simulation results, the response of a detection panel to \textsl{MI
 \begin{figure}[h!]
     \centering
         \includegraphics[scale=0.3]{Figures/atenuacion_panel_bw.png}
-   \caption[Response of the hodoscope panels]{Production probability of photo-electrons in each of the pixels of a panel of the hodoscope by muons of 3 GeV of energy. Each frame represents a detection pixel and it can be seen that there is a difference between two zones of the panel. In the pixel $P_{11}$, where the \textsl{SiPM} of the horizontal bar and the vertical bar is only 2 cm from the point of impact of the muon, is produced the maximum number of \textsl{pe} while the \textsl{pe} decreases until 12\% for pixels far from the SiPMs. This result is valid both for the front and the rear panel.}\label{atenuacion_panel_bw}
+   \caption[Response of the hodoscope panels]{Production probability of photo-electrons in each of the pixels of a panel of the hodoscope by muons of 3   \textsl{GeV}  of energy. Each frame represents a detection pixel and it can be seen that there is a difference between two zones of the panel. In the pixel $P_{11}$, where the \textsl{SiPM} of the horizontal bar and the vertical bar is only 2 cm from the point of impact of the muon, is produced the maximum number of \textsl{pe} while the \textsl{pe} decreases until 12\% for pixels far from the SiPMs. This result is valid both for the front and the rear panel.}\label{atenuacion_panel_bw}
 \end{figure}
 
 
@@ -283,7 +294,7 @@ These results are valid for both the front panel and the rear panel, and it is o
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{First hodoscope measurements}\label{sec:hodoscope_data} %Jesus
 
-%In order to compare the scintillator panel performance with simulation results we carried out flux measurements. The amplification of the scintillation signals comings from the \textsl{SiPMs} is of 92 times, using an operational amplifier OPA691. On the other hand, discrimination was made with the 64 channels of the ASIC MAROC3A, setting a discrimination threshold by a 10 bits digital-to-analog converter. 
+%In order to compare the scintillator panel performance with simulation results we carried out flux measurements. The amplification of the scintillator signals comings from the \textsl{SiPMs} is of 92 times, using an operational amplifier OPA691. On the other hand, discrimination was made with the 64 channels of the ASIC MAROC3A, setting a discrimination threshold by a 10 bits digital-to-analog converter. 
 
 %Many factors cause variations in the bar detection rate. These are the scintillator material impurities, \textsl{WLS} fiber assembling,  \textsl{SiPM} coupling, signal conditioning, and transmission. Taking into account those variables, the hodoscope calibration must start with an equalization stage of the bar response by applying a weighted gain per channel. The equalization is carried out reducing the variability around the mean detection rate, that is, increasing the gain for channels under the mean and decreasing the gain for channels above the mean. The results displays an average detection rate of $8363$ $\pm 96.3$ event/h per bar. 
 %Furthermore, a bad optical coupling is exemplified in bar $Y_{26}$ because of its low rate even after equalization.
@@ -330,17 +341,16 @@ It should be noted that the inclusion of the efficiency of the \textsl{PMT} in t
  \subsubsection{Estimation of the Vertical Equivalent Muon unit}
  To measure the deposited energy by the incident particles, an absolute calibration of the detector is needed. The Vertical Equivalent Muon (\textsl{VEM}) is generally adopted as the measurement unit of calibration \cite{EtchegoyenEtal2005}. This is defined as the average charge collected in the \textsl{PMT} when a high-energy muon crosses the entire detector vertically. In the calibration of the \textsl{WCD} these muons can be easily identified by installing plastic scintillators above and below the detector, centered on their axis \cite{EtchegoyenEtal2005}, so the muon can be detected before and after leaving the \textsl{WCD}.
  
-It is not necessary to implement this method in the detector simulation, due to the \textsl{Geant4} code allows to inject muons with a chosen energy and a initial direction. In this case, $100000$ muons were injected with $3$GeV of initial energy, in direction $-\hat{z}$ towards the water, and the initial position given by the point $ P=(80, 80, 121)$ cm, over the \textsl{WCD}. 
+It is not necessary to implement this method in the detector simulation, due to the \textsl{Geant4} code allows to inject muons with a chosen energy and a initial direction. In this case, $100000$ muons were injected with $3$\textsl{GeV}   of initial energy, in direction $-\hat{z}$ towards the water, and the initial position given by the point $ P=(80, 80, 121)$ cm, over the \textsl{WCD}. 
 
-As a result, the average number of Cherenkov photons, $N$, produced in the water by those incident particles that have traveled a distance $l$ in water was obtained. The portion of $N$ that reaches the external surface of the photo-cathode is named as $N_{\mathrm{PMT}}$. Finally, the $ N_{\mathrm{PMT}}$ produces a number of photo-electrons, $N_{\mathrm{pe}}$, depending on its wavelength. From this, the \textsl{WCD} efficiency to detect muons was estimated, i.e. a \textsl{VEM} of $3$GeV generates around $46857$ Cherenkov photons in $120$cm of water crossed, only $1617$ of those photons reach the external surface of the photo-cathode and, from its quantum efficiency, around $203$ \textsl{pe} are produced in average. Thus, the system has a muon detection efficiency of $0.4$\%, that is,
+As a result, the average number of Cherenkov photons, $N$, produced in the water by those incident particles that have traveled a distance $l$ in water was obtained. The portion of $N$ that reaches the external surface of the photo-cathode is named as $N_{\mathrm{PMT}}$. Finally, the $ N_{\mathrm{PMT}}$ produces a number of photo-electrons, $N_{\mathrm{pe}}$, depending on its wavelength. From this, the \textsl{WCD} efficiency to detect muons was estimated, i.e. a \textsl{VEM} of $3$\textsl{GeV}   generates around $46857$ Cherenkov photons in $120$cm of water crossed, only $1617$ of those photons reach the external surface of the photo-cathode and, from its quantum efficiency, around $203$ \textsl{pe} are produced in average. Thus, the system has a muon detection efficiency of $0.4$\%, that is,
 \begin{equation}
 \eta_{\mathrm{WCD}}=\frac{N_{\mathrm{FE}}}{N} 100\%=\frac{203}{46857}100\%=0\textnormal{.}4\%
 \end{equation}
 
-
 Since the unit of calibration \textsl{VEM} is independent of the site of detection, the simulated value ($\sim 203$ pe) is compared with the value obtained from the first data of the \textsl{WCD} located in the laboratory, that is around $\sim 167.5$pe as shown figure \ref{WCDpe}. 
 
-In order to compare the \textsl{WCD} response to muons and electrons of typical energy at the \textsl{CM} volcano, we compute the same simulations for $100000$ electrons of $20$MeV at the same initial direction and point $P$. These particle are defined as Vertical Electrons (\textsl{VE}) and the histogram of the number of photo-electrons produced in the figure \ref{vem_ve} with the \textsl{VEM} histogram. The mean value of the \textsl{VE} is smaller than the \textsl{VEM}, around $17$\textsl{pe} that represents a $8$\% of it.
+In order to compare the \textsl{WCD} response to muons and electrons of typical energy at the \textsl{CM} volcano, we compute the same simulations for $100000$ electrons of $20$\textsl{MeV}   at the same initial direction and point $P$. These particle are defined as Vertical Electrons (\textsl{VE}) and the histogram of the number of photo-electrons produced in the figure \ref{vem_ve} with the \textsl{VEM} histogram. The mean value of the \textsl{VE} is smaller than the \textsl{VEM}, around $17$\textsl{pe} that represents a $8$\% of it.
 
 Here is also obtained the characteristic pulse for \textsl{VEM} and \textsl{VE} as the number of \textsl{pe} vs time, shown in the figure \ref{pulse_vem_ve}. From those histogram fits we can obtain the attenuation time $\tau$ and lenght $l_a$, of the signal. 
 
@@ -368,7 +378,7 @@ A summarize of the results and a comparison between both particles is shown in t
 
 \begin{tabular}{l|c|c|}
 \cline{2-3}
-                                                     & \textbf{$\mu^-$ (3 GeV) }& \textbf{$e^-$ (20 MeV)} \\ \hline
+                                                     & \textbf{$\mu^-$ (3   \textsl{GeV} ) }& \textbf{$e^-$ (20   \textsl{MeV} )} \\ \hline
 \multicolumn{1}{|l|}{\textbf{$l$}}   &          (120 $\pm$ 1) cm      &    (10 $\pm$ 1) cm        \\ \hline
 \multicolumn{1}{|l|}{\textbf{$N$}}    &         46857 $\pm$ 13 $ $   &      3538 $\pm$ 1 $ $      \\ \hline
 \multicolumn{1}{|l|}{$N_{\mathrm{PMT}}$}       &          1617 $\pm$ 1     &     132.1 $\pm$ 0.1      \\ \hline
@@ -447,7 +457,7 @@ From the \textsl{Geant4} model of the scintillator detector, it was obtained tha
 
 Regarding to the \textsl{WCD} response, the value of the \textsl{VEM} obtained with the simulations and that obtained in the laboratory, are in the same order of magnitude, but present a percentage difference of $18$\% with respect to the modeled value. This difference can be related by the various components of the electronics, where part of the signal can be lost.
 
-From the results obtained, a muon detection trigger for the \textsl{MuTe} is proposed in terms of the energy deposited in each of its components. That is, the muon must deposit around $2.08$MeV in two scintillator bars on the front panel, then the same energy in two bars on the rear panel of the hodoscope, to finally discriminate the signal from the noise in the \textsl{WCD}. Then, the muon must deposit around 240 MeV of energy in the \textsl{WCD} to be counted as an event.
+From the results obtained, a muon detection trigger for the \textsl{MuTe} is proposed in terms of the energy deposited in each of its components. That is, the muon must deposit around $2.08$\textsl{MeV}   in two scintillator bars on the front panel, then the same energy in two bars on the rear panel of the hodoscope, to finally discriminate the signal from the noise in the \textsl{WCD}. Then, the muon must deposit around 240   \textsl{MeV}  of energy in the \textsl{WCD} to be counted as an event.
 
 %Comparación de la atenuación en la barra obtenida por simulación y experimentalmente.
 
