@@ -19,7 +19,7 @@
 \affiliation{Escuela de Física, Universidad Industrial de Santander, Bucaramanga Colombia}
 
 \author{M. Suárez-Durán}
-\affiliation{Departamento de F\'{\i}sica y Geolog\'{\i}a, Grupo de Investigación Integrar, Universidad de Pamplona, Pamplona-Colombia.}
+\affiliation{Departamento de F\'{\i}sica y Geolog\'{\i}a, Universidad de Pamplona, Pamplona-Colombia.}
 
 \author{A. Jaimes-Motta}
 \affiliation{Escuela de Física, Universidad Industrial de Santander, Bucaramanga Colombia}
@@ -89,7 +89,7 @@ The Muon Telescope (sketched in figure \ref{fig:mute-detector}) is a hybrid dete
 %%%%%%%%%%%%%%%%%%%
 %%%% SECTION 2 %%%%
 %%%%%%%%%%%%%%%%%%%
-\subsection{Hodoscope response to cosmic background radiation}\label{sec:hodoscope-response}
+\section{Hodoscope response to cosmic background radiation}\label{sec:hodoscope-response}
 The response of the hodoscope bars refers to the signal produced in the photo-sensor when a minimum ionizing particle (\textsl{MIP}) crosses each scintillator bar. As shown in figure \ref{esquema_centelladora}, charged particles crossing the bars produce scintillation photons, absorbed, re-emitted, and guided to the photo-sensor device by a wavelength shifting (\textsl{WLS}) multi-cladding fiber. 
 
 The bars of \textsl{MuTe} are Dow Styron $663$, made of Polystyrene, doped with $1$\% \textsl{PPO} and $0.03$\% \textsl{POPOP} \cite{PlaBrossRykalin2003}, which place a photon emission peak around the $420$nm wavelength. These bars, coated with $85$\% Polystyrene and $15$\% TiO$_2$ of $0.25$mm thick, have a hole of $\sim 3$mm diameter at its center, where there is a \textsl{WLS} multi-cladding fiber (reference BCF92 of Saint Gobain). The fiber diameter is $1$mm, with a core made of Polymethyl methacrylate, having the first clad of Polyethylene, and the second one of Fluorinated Polyethylene \cite{SaintGobain2017}. A mechanical coupling joins the fiber with a silicon photo-multiplier (\textsl{SiPM} S$13360$-$1350$CS of Hamamatsu), with a photo-sensitive surface of $1.3$cm $\times 1.3$cm of $2668$ pixels \cite{Hamamatsu2018}. This device has a spectral detection range from $270$ to $900$nm, with its maximum sensitivity around $450$nm.
@@ -97,7 +97,7 @@ The bars of \textsl{MuTe} are Dow Styron $663$, made of Polystyrene, doped with 
 \begin{figure}[h!] %Rocal
     \centering
         \includegraphics[scale=0.21]{Figures/esquema_barra.jpeg}
-   \caption{This picture represent the scintillator bar system, with an embedded \textsl{WLS} fiber used for the experimental study of plastic scintillators coupled to a \textsl{SiPM}, what is remarkable, plastics are chosen to change the wavelength. When a charged particle cross the bar it losses part of its energy that generates photons with wavelength around the blue. Those photons are absorbed and re-emited in the fiber as green photons. This fiber guides the photons to the SiPM where they produce a signal depending on their wavelenght (its spectral detection range is $270$ to $900$nm with the maximum sensivity around $450$nm).}\label{esquema_centelladora}
+   \caption{This picture represent the scintillator bar system, with an embedded \textsl{WLS} fiber used for the experimental study of plastic scintillators coupled to a \textsl{SiPM}, what is remarkable, plastics are chosen to change the wavelength. When a charged particle cross the bar it losses part of its energy that generates photons with wavelength around the blue. Those photons are absorbed and re-emitted in the fiber as green photons. This fiber guides the photons to the \textsl{SiPM} where they produce a signal depending on their wavelength (its spectral detection range is $270$ to $900$nm with the maximum sensitivity around $450$nm).}\label{esquema_centelladora}
 \end{figure}
 
 Next sections will discuss the \textsl{Geant4} simulation model of the bars, as well as the experimental setup for the analysis of their responses (see section \ref{sec:bar-data}) and estimation of the average response of the hodoscope panels to the passage of \textsl{MIPs} (see section \ref{sec:hodoscope-response-two}). 
@@ -106,7 +106,7 @@ Next sections will discuss the \textsl{Geant4} simulation model of the bars, as 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{The scintillator bar model} \label{sec:bar-simulation}%Adriana
+\subsection{The scintillator bar model} \label{sec:bar-simulation}%Adriana
 The scintillator bar \textsl{Geant4} geometric model is a parallelepiped of $4$cm wide, $2$cm high and $120$cm long. We incorporate to this geometry a coating material --made of $15$\% of TiO$_2$ and $85$\% of polystyrene-- with a reflectivity of $1$ and $0.25$mm of thickness. The scintillating bar is polystyrene, with an index of refraction, $n=1.50$, and a photon absorption length of $5.5$cm. There is a tunnel of $119.5$cm long and $1.8$mm of diameter, drilled through the main axis of the bar, where we place a multi-cladding \textsl{WLS} fiber. This looseness of $0.5$cm at the end of the tunnel --filled with air to make the model as real as possible-- avoids the escape of photons.
 
 A solid cylinder of poly-methyl methacrylate, with $119.45$cm long and $0.5$mm radius, models the fiber. This configuration leaves a space of $0.05$cm inside the tunnel to locate the \textsl{SiPM}. The first clad of this fiber is a cylindrical shell of polyethylene, with an internal radius of $0.5$mm and an external radius of $0.515$mm. The second is a shell of fluorinated polyethylene, with an internal radius of $0.515$mm and an external radius of $0.530$mm. Both coatings have the same fiber length.
@@ -178,7 +178,7 @@ The \textsl{Geant4} model allows estimating how good is the coupling \textsl{SiM
 \begin{figure}
     \centering
     \includegraphics[scale=0.41]{Figures/coupling.png}
-    \caption{Histogram of the number of \textsl{pe} resulting from the evaluation of the \textsl{SiPM} and fiber coupling. The squares curve represents the photo-electrons produced in the ideal case (when the \textsl{SiPM} and the fiber are side by side), while the simple line shows the non-ideal case, where the distance between the \textsl{SiPM} and the fiber is $1.15$mm. The average number  in the ideal case is around $40$\textsl{pe} and in the non-ideal is around $8$\textsl{pe}, i.e. the $80$\% of the signal is lost. This result gives an idea of when a bar-fiber-SiPM system of the real detector is badly coupled and should be replaced or verified.}
+    \caption{Histogram of the number of \textsl{pe} resulting from the evaluation of the \textsl{SiPM} and fiber coupling. The squares curve represents the photo-electrons produced in the ideal case (when the \textsl{SiPM} and the fiber are side by side), while the simple line shows the non-ideal case, where the distance between the \textsl{SiPM} and the fiber is $1.15$mm. The average number  in the ideal case is around $40$\textsl{pe} and in the non-ideal is around $8$\textsl{pe}, i.e. the $80$\% of the signal is lost. This result gives an idea of when a bar-fiber-\textsl{SiPM} system of the real detector is badly coupled and should be replaced or verified.}
     \label{coupling}
 \end{figure}
 
@@ -186,77 +186,62 @@ The \textsl{Geant4} model allows estimating how good is the coupling \textsl{SiM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Experimental results from the scintillator detector}\label{sec:bar-data}%Rolando
-%\textit{(Description of Rolando's methodology and the results: number of photoelectrons per pixel and attenuation) }
-The \textsl{MuTe} panels are build of plastic scintillators, these are active detectors  and  work as counters of charged particle. This allows the indirect detection of ionizing radiation. The light that is produced at the passage of charged particles is converted in electrical signals. The last step is the offline analysis. The diagram of the module is represented in figure \ref{esquema_centelladora}. 
+\subsection{Experimental results from the scintillator detector}\label{sec:bar-data}%Rolando
+The plastic scintillators of the \textsl{MuTe} panels are active detectors that work as counters of charged particles. This allows the indirect detection of ionizing radiation, due to the light --produced in the scintillator at the passage of a charged particle-- travels through the optical fiber towards the \textsl{SiPM}, where it produces an electrical signal which can be analyzed offline. The diagram of this \textsl{Bar}-\textsl{Fiber}-\textsl{SiPM} system is represented in figure \ref{esquema_centelladora}. 
 
-To use the fiber and \textsl{SiPM} coupled system, a first study was made to guarantee that the \textsl{SiPM} keeps working in Geiger mode at any temperature. This allows to define a methodology to detect particles with the coupled system. %if there is background noise.
-Since the system has an intrinsic noise, it is important to know the detection system and have a strategy of interpretation of the measured data, to have a discriminant. Next section presents the results of the dependence of the breakdown voltage with the temperature.
+Since the \textsl{SiPMs} have intrinsic noise, then it is important to know well the detector, in order to define a methodology with a discriminant to detect particles and correctly interpret the measured data. A first study was made to guarantee that the \textsl{SiPM} keeps working in Geiger mode at any temperature. Section \ref{breakdown-voltage} presents the results of the dependence of the breakdown voltage with the temperature.
 
-On the other hand, given that scintillators and \textsl{SiPM} are not $100$\% efficient, there are various parameters to take into account. For example, the material of the bars is opaque to photons with an average length of $4$cm of attenuation. Then, in order to have a detector of $120$cm length, a \textsl{WLS} fiber is placed inside the bar. The fibers guide the photons, but they can present attenuation in spite of being multi-layer, i.e. some photons can escape from the guide and even be reflected in the border. This represents an additional problem when coupling different scintillators and there will be edge effects related to the refractive index of each one.
-In addition, to have a larger detection area, we must quantify the attenuation in these fibers and determine, in the case of the MuTe detector, whether the coupling and attenuation will be relevant. To answer these questions, a controlled experiment was performed, to estimate the percentage of attenuation in the system and a counting strategy.
+On the other hand, given that the scintillator, the fiber and the \textsl{SiPM} are not $100$\% efficient, there are various parameters to take into account. For example, the material of the bars is opaque to photons with an average length of $5.5$cm of attenuation. Then, in order to have a detector of $120$cm length, a \textsl{WLS} fiber is placed inside the bar. The fibers guide the photons, but they can present attenuation in spite of being multi-layer, i.e. some photons can escape from the guide and even be reflected in the border. This represents an additional problem when coupling different scintillators, and there will be edge effects related to the refractive index of each one. Therefore, we must quantify the attenuation in these fibers and determine whether the coupling and the attenuation will be relevant in the case of the MuTe scintillator bars. A controlled experiment was performed to estimate the percentage of attenuation in the system (see section \ref{attenuation-experimental}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Dependence of the breakdown voltage with the temperature}%Rolando
+\subsubsection{Dependence of the breakdown voltage with the temperature}\label{breakdown-voltage}%Rolando
+To study the response of each scintillator bar, we first studied the stability of the \textsl{SiPMs} with temperature changes. \textsl{SiPMs} can change their mode of operation if the input voltage ($V_{Bias}$) is less than the breakdown voltage ($V_B$). $V_B$ varies if the \textsl{SiPM} temperature changes. To solve this problem, a relationship must be found between the $V_B$ and the temperature at which the \textsl{SiPM} works. With this relationship we can obtain an adjustment parameter to ensure that \textsl{SiPMs} always work in Geiger mode.
 
-To study the response of each scintillator bar, the stability of the \textsl{SiPM} to temperature changes was first studied. For this purpose, a temperature controlled box was built. This box was regulated by a TEC1-12706 thermoelectric peltier, mounted on an aluminum frame where the mechanical coupling with the \textsl{SiPM} was located. 
-This structure was introduced in a thermally insulated box. The control system consist of two sensors: one to vary the temperature and the other one to measure the temperature of the \textsl{SiPM}. To define a target temperature, measurements of the time the system was set up were made. The measurements were taken with the following temperatures: $10^{\circ}$C, $20^{\circ}$C,  $40^{\circ}$C and $50^{\circ}$C. It was concluded that the time required to reach the target temperature was around 600s $\pm$ 50s.
+For this purpose, a temperature controlled box was built. This box was regulated by a TEC1-12706 thermoelectric peltier, mounted on an aluminum frame where we located the mechanical coupling of the \textsl{SiPM}. This structure was introduced in a thermally insulated box. The control system consist of two sensors: one to vary the temperature and the other one to measure the temperature of the \textsl{SiPM}. For different target temperatures ($10^{\circ}$C, $20^{\circ}$C, $40^{\circ}$C and $50^{\circ}$C) the system set-up time was measured. From the figure \ref{timesetup}, it is noted that the time required to reach the target temperature, in each case, is around $(600 \pm 50)$s.
 
-The \textsl{SiPM} power supply was then mounted and the DarkCurrent \cite{Renker2006} was measured in the range of $40$V to $60$V. This was done for $5$ target temperatures, $0^{\circ}$C, $10^{\circ}$C, $20^{\circ}$C, $30^{\circ}$C, $40^{\circ}$C, $50^{\circ}$C for each temperature. There was a curve from which the rupture voltage was calculated, the relationship between the breakdown voltaje and the temperature can be seen in the figure \ref{temperature}. From this was determined that for each $10^{\circ}$C,  the breakdown voltage of the \textsl{SiPM} change 0,45V.
+\begin{figure}[h!] %Rocal
+    \centering
+        \includegraphics[scale=0.48]{Figures/tiempo_establecemiento.png}
+   \caption{Measurements of the system set-up time with different target temperatures: $10^{\circ}$C, $20^{\circ}$C, $40^{\circ}$C and $50^{\circ}$C. We can see that the time required to reach the target temperature in each case is around $(600 \pm 50)$s. }\label{timesetup}
+\end{figure}
+
+After this test, the \textsl{SiPM} power supply was mounted and the DarkCurrent \cite{Renker2006} was measured in the range of $40$V to $60$V. This was done for $5$ target temperatures: $0^{\circ}$C, $10^{\circ}$C, $20^{\circ}$C, $30^{\circ}$C, $40^{\circ}$C and $50^{\circ}$C. The breakdown voltage was determined from each case and the relationship with the temperature is in figure \ref{temperature}. From this graph we have that for each $10^{\circ}$C of temperature, the $V_B$ changes around $0.45$V.
 
 \begin{figure}[h!] %Rocal
     \centering
         \includegraphics[scale=0.49]{Figures/voltajeRuptura.png}
-   \caption{Relationship between temperature and Breakdown Voltage for the  \textsl{SiPM} Hamamatsu S13360-1350CS used in the MuTe telescope.}\label{temperature}
+   \caption{Dependence of the breakdown voltage with the temperature for the \textsl{SiPM} Hamamatsu S13360-1350CS used in the MuTe hodoscope. It can be observed that the relation is linear, that is for every $10^{\circ}$C of temperature the $V_B$ varies about $0.45$V.}\label{temperature}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Attenuation measurements of the scintillator bar system}%Rolando
-
-%The light propagating inside the scintillator and the \textsl{WLS} fiber has an inevitable attenuation, some photons escape from the optical guide and others are simply absorbed by the material while being transported to the \textsl{SiPM}.
-In order to calculate the attenuation in the scintillator bars, an assembly of scintillators in coincidence was carried out inside the black box. The scintillators were placed on a frame that slid on a rail along the test bar as shown in figure \ref{coincidencia_barras}. These scintillators worked in coincidence in order to generate a trigger signal required to save the pulse on the test bar. Three important positions were chosen: the opposite end of the coupling location, in the middle of the scintillator bar and at the end where the  \textsl{SiPM} was located.
+\subsubsection{Attenuation measurements of the \textsl{Bar}-\textsl{Fiber}-\textsl{SiPM} system}\label{attenuation-experimental}%Rolando
+In order to calculate the attenuation in the scintillator bars, measurements were taken of the signal produced by the passage of charged particles in three positions of a test bar: at the end where the \textsl{SiPM} is located, in the middle and at the opposite end. To generate the trigger signal, small scintillators with rectangular cross-section and dimensions ($4$cm $\times$ $4$cm $\times$ $1$cm) were used. These also have a \textsl{WLS} fiber-\textsl{SiPM} coupling system. This assembly of bars in coincidence was carried out inside a black box. The scintillators were placed on a frame that slid on a rail along the test bar as shown in figure \ref{coincidencia_barras}. Then, an event occurs when there is a signal in the small scintillator on top of the test bar, there is a signal on the test bar and then on the small scintillator below it.  
 
 \begin{figure}[h!] %Rocal
     \centering
         \includegraphics[scale=0.23]{Figures/barras_coincidencia.png}
-   \caption{Schematic layout of the experimental set-up.} \label{coincidencia_barras}
+   \caption{Diagram of the experimental set-up, assembly and dimensions of the system in coincidence of 3 plastic scintillators to measure the attenuation of the signal produced in the \textsl{SiPM} to the passage of charged particles. The 3 positions of interest are shown on the test bar: at the end where the \textsl{SiPM} is located, in the middle and at the opposite end. } \label{coincidencia_barras}
 \end{figure}
 
-To generate the trigger signal, small scintillators with rectangular cross-section and dimensions ($4$cm $\times$ $4$cm $\times$ $1$cm) were used. They also had \textsl{WLS} fiber and a \textsl{SiPM} in each scintillator. This trigger system was connected to a RedPitaya development card capable of recording pulses with a frequency of 125 Mhz (cite). The system was synchronized to have pulses in coincidence, having three input signals to the card and one output signal that corresponded to each position in the scintillator bar of study.
+The trigger system was connected to a RedPitaya development card capable of recording pulses with a frequency of 125 Mhz \cite{Pitaya2016}. The system was synchronized to have pulses in coincidence, having three input signals to the card and one output signal that correspond to each position in the scintillator test bar. The coinciding system had an angle $\theta$ for this configuration of $106.26^{\circ}$ as shown in the figure \ref{coincidencia_barras}. The frequency of events per minute that was measured experimentally with the aid of an oscilloscope was $10\pm1$ per minute for $16$cm$^2$. With these data was estimate that were detected 0.62 particles$\times$min$\times$cm$^2$. 
 
-After performing a calibration with respect to the noise, $10000$ reference pulses were taken in the three positions of interest. In the position opposite to \textsl{SiPM}, the fiber was cut to $45^{\circ}$ to maximize photon leakage and avoid secondary pulses by reflections at the end of the fiber. However, reflections are practically inevitable.
+After performing a calibration with respect to the noise, $10000$ reference pulses were taken in the three positions of interest. In the position opposite to \textsl{SiPM}, the fiber was cut to $45^{\circ}$ to maximize photon leakage and avoid secondary pulses by reflections at the end of the fiber. From each average pulse we calculate the mean charge deposited in the three positions, to estimate the percentage of attenuation by normalizing and comparing the values. The results shown in figure \ref{experimental_attenuation}, where an exponential adjustment coincides with the attenuated signal. The function used was $f(x)=0.88+a*exp(-x*b)$ with the parameters $a$=0.126652, $b$= 0.0205653 with an error of +/- 0.003444 (2.72\%) and +/- 0.001065 (5.18\%) respectively.
 
-The coinciding system had an angle $\theta$ for this configuration of $106.26^{\circ}$ as shown in the figure \ref{coincidencia_barras}. The frequency of events per minute that was measured experimentally with the aid of an oscilloscope was $10\pm1$ per minute for $16$cm$^2$. With these data was estimate that were detected 0.62 particles$\times$min$\times$cm$^2$. 
-
-
+In this case the difference between the mean charge value deposited at the far end of the \textsl{SiPM} and the nearest is around 11\%. That is, if the average charge deposited by a muon or electron near the \textsl{SiPM} is 1, the average charge deposited by the same particle at the farthest opposite end is 11\% less and represents the maximum attenuation in this 120 cm long active detection system.
 
 \begin{figure}[h!] %Rocal
     \centering
         \includegraphics[scale=0.49]{Figures/atenuacion_esperimental.png}
-   \caption{Porcentual attenuation from scintillators system.} \label{experimental attenuation}
+   \caption{Porcentual attenuation of the signal in the test bar obtained with the system in coincidence of 3 plastic scintillators. The maximum amplitude is in the position closest to the SiPM, which then decreases by 11\% at the opposite end. Three positions were obtained with data and some intermediate points come from the fit made, which corresponds to an exponential function. } \label{experimental_attenuation}
 \end{figure}
 
-
-Con el propósito de tener referencia para las simulaciones y análisis de datos \textit{offline} para el hodoscopio de MuTe, se planteo la necesidad de cuantificar la atenuación. Para esto usamos los pulsos de referencia calculado el pulso promedio en cada set de datos, para las tres posiciones de estudio. Se presentan los pulsos promedio, en la figura \ref{Figura62} son representados con un bin en el eje x de 8ns en  unidades de tiempo.
-
-Para determinar el pulso promedio, se tomó cada muestra de 10.000 pulsos como una matriz, donde cada pulso corresponde a un vector columna. Luego para cada fila se calculó el promedio y su desviación estándar $\sigma$. Seguido se graficó el pulso promedio con sus desviaciones para las tres posiciones, en la figura \ref{Figura62} observamos que las desviaciones son hasta del 30\% de la amplitud total y se cruzan. Para un único evento sera difícil discriminar con certeza la posición de incidencia sobre la barra.
-
-La diferencia porcentual de la carga correspondiente a cada pulso promedio nos permite inferir un porcentaje de atenuación al normalizar los valores y comparar con un ajuste exponencial que coincide con una señal atenuada. La función utilizada fue $f(x)=0.88+a*exp(-x*b)$ con los parámetros $a$=0.126652, $b$= 0.0205653 con un error de +/- 0.003444 (2.72\%) y +/- 0.001065 (5.18\%) respectivamente.
-
-En este caso la diferencia entre el valor de carga media depositada en el extremo más alejado del SiPM y el más cercano es de un 11\%. Es decir, si la carga media depositada por un muon o electrón cerca del SiPM es de 1, la carga media depositada por la misma partícula en el extremo opuesto mas alejado es 11\% menor y representa la máxima atenuación en este sistema de detección activo de 120 cm de largo.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%% SUBSECTION %%%%%%%%
-\subsubsection{Simulated attenuation in the hodoscope}
+\subsection{Simulated attenuation in the hodoscope}
 \label{sec:hodoscope-response-two} %Adriana
 To determine the response of each panel of the hodoscope the probability of producing photo-electrons in the \textsl{SiPM} of a horizontal bar and in a vertical bar is taken into account. Those events are independent one from the other, therefore for the front panel the probability in the pixel $P^{F}_{i,j}$ is given by 
 \begin{equation}
@@ -308,7 +293,7 @@ These results are valid for both the front panel and the rear panel, and it is o
 %%%%%%%%%%%%%%%%%%%
 %%%% SECTION 4 %%%%
 %%%%%%%%%%%%%%%%%%%
-\subsection{The water Cerenkov detector response to cosmic background radiation}\label{sec:wcd-response}
+\section{The water Cerenkov detector response to cosmic background radiation}\label{sec:wcd-response}
 The \textsl{WCD} indirectly detects charged particles, counting the Cerenkov photons that originate when the particle travels a certain length in the water. The counter is a photo-multiplier tube, that generates a number of photo-electrons according to its quantum efficiency. This efficiency depends on the wavelength of the photon that reaches it, in this case, the \textsl{PMT} Hamamatsu R5912 of the \textsl{MuTe} has a maximum detection probability value of $25$\% for photons with $\lambda = 400$ nm \cite{Hamamatsu2018}. This \textsl{PMT} is located at the center top of the \textsl{WCD}. As stated above, this detector is a metal purified water container of $120$\,cm side, coated inside by the Tyvek to spread the photons that reach the walls of it, and thus ensure that the maximum number of Cerenkov photons reach the \textsl{PMT}. 
 
 The following sections show the results of the simulation of the response of this detector to charged particles, as well as the first data recorded by the real \textsl{WCD} in the laboratory.
@@ -317,7 +302,7 @@ The following sections show the results of the simulation of the response of thi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{The WCD model}\label{sec:wcd-model}
+\subsection{The WCD model}\label{sec:wcd-model}
 The simulated water container in \textsl{Geant4}, is a cube of length $l_c=1.21$m, made of stainless steel. The water occupies a cube of $ l=1.20$m side with a refractive index $n$, which varies between $1.3435$ and $1.3608$, and a photon absorption length ranging from $0.69$m to $2.90$m according to its energy. In the walls of the water cube the Tyvek is modeled as an optical surface with reflection index $n_{\mathrm{Tyvek}} = 1 $, which diffuses the Cerenkov photons.
 
 For the \textsl{PMT}, the photo-cathode was simulated as an air half-ellipsoid with semiaxes $s_x=10.1$cm, $ s_y = 10.1$cm and $s_z=6.5$cm, located on top of the water cube. The quantum efficiency (\textsl{QE}) of this device was introduced in the code taking into account reference Hamamatsu R5912 \cite{Hamamatsu2018}. The QE determines whether photons reaching the outer surface of the photo-cathode will be detected or not. These photons originate photo-electrons (denoted as \textsl{pe}) by photoelectric effect. Then the response of the \textsl{WCD} is given in terms of the \textsl{pe} generated by each of the particles that interact with it.
@@ -382,12 +367,12 @@ The estimation of the \textsl{WCD} response to the cosmic background radiation f
 \begin{equation}
 \Xi = \frac{N_{\mathrm{Sec}}}{1\,\mathrm{h}\, 1\,\mathrm{m}^2}, 
 \end{equation}
-is redistributed in a circular area $A$ located at 1 cm of the top of the \textsl{WCD}. The larger the area the larger the number of particles coming in almost all the zenith angles. In order to get the response of particles coming from $0\leq \theta \leq 80^{\circ}$ we set $A=480$m$^2$ in the \textsl{ARTI} framework. Then the flux is re-written as
+is redistributed in a circular area $A$ located at 1 cm of the top of the \textsl{WCD}. The larger the area the larger the number of particles coming in almost all the zenith angles ($\theta$). In order to get the response of particles coming from $0\leq \theta \leq 80^{\circ}$ we set $A=480$m$^2$ in the \textsl{ARTI} framework. Then the flux is re-written as
 
 \begin{equation}
-\Xi_{CM} = \frac{N_{\mathrm{Sec}}}{1\,\mathrm{h}\, 1\,\mathrm{m}^2}, 
+\Xi_{CM} = \frac{N_{\mathrm{Sec}}}{7.5\,\mathrm{s}\, 480\,\mathrm{m}^2}, 
 \end{equation}
-where the number of secondaries at CM level is $N_{\mathrm{Sec}}=$.
+where $N_{\mathrm{Sec}}=$ is the number of secondaries at CM volcano.
 
 The histogram of the number of photo-electrons produced in the \textsl{WCD} due to the flux $\Xi_{CM}$ is shown in the figure \ref{fig:flux}. The different curves are the contribution of the particles components to the total response (empty circles). It can be noted that this curve has two main peaks, the first one with a contribution of the electromagnetic component and the second one with the muonic component.
 
@@ -401,7 +386,7 @@ The histogram of the number of photo-electrons produced in the \textsl{WCD} due 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{First WCD measurements}\label{sec:wcd-data}%Jesus
+\subsection{First WCD measurements}\label{sec:wcd-data}%Jesus
 
 The \textsl{WCD} acquisition system records two signals from the \textsl{PMT}, anode and last dynode. The dynode pulses were amplified 20 times for increasing the measuring range. These two channels were digitized by a 10 bits analog-to-digital converter.
 
