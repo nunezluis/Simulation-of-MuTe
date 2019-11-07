@@ -52,7 +52,9 @@ Comisión Nacional de Energía Atómica, San Carlos de Bariloche, Argentina}
 
 
 \begin{abstract} 
-abstract here
+This paper presents a detailed computational \textsl{Geant4} modeling of a hybrid Muon Telescope and the estimation of its response under a muon flux at $2650$\,m a.s.l at Cerro Machín Volcano-Colombia. 
+ The instrument combines two detection techniques: a hodoscope with two planes of plastic scintillator bars, and a Water Cherenkov detector, located behind the rear scintillator panel, which acts as an absorbing element and as a third active coincidence detector. The model includes the materials, geometries, dimensions, and the photo-sensitive devices of the detectors. 
+From the results obtained, in agreement with several experimental setups, we propose a muon detection trigger in terms of the energy deposited in each component of the instrument.
 \end{abstract}
 
 \keywords{keyword1, ... }
@@ -68,14 +70,14 @@ Atmospheric muons originate from the decay of charged pions and kaons produced t
 
 Hodoscopes are the most common detectors implemented for volcano muography.  They consist of two or several panels to identify the particle trajectories in terms of the zenith and azimuth angles. Projects like \textsl{MU-RAY} \cite{AnastasioEtal2013}, \textsl{ToMuVol} \cite{CarloganuEtal2013}, and \textsl{DIAPHANE} \cite{LesparreEtal2010} employ hodoscopes based on different detection technologies: emulsion plate, Resistive Plate Chambers, Micromegas, Multi-Wire Proportional Cameras, and scintillators, to mention the most common. Each of these techniques has advantages and disadvantages. The emulsion plate detectors \cite{MorishimaEtal2017, Nagamine2016} provide an excellent spatial resolution of the order of sub-microns, are passive, and easy to handle. On the other side, they have short lifetimes, and it is not possible to discriminate the time-stamp of dynamic phenomena, because the recorded events accumulate in the plates. The gas detectors as Resistive Plate Chambers \cite{SehgalEtal2016, Fehr2012}, Micromegas \cite{BouteilleEtal2016}, and Multi-Wire Proportional Cameras \cite{OlahEtal2018}, allow obtaining short traces of the detected particles with a spatial resolution around the microns. However, since these detectors operate outdoors, the gain of the electrodes depends highly on environmental variables such as pressure and temperature. Besides, they require high voltage for optimal operation, which results in higher power consumption compared with emulsion detectors. Finally, there are scintillator detectors such as the segmented \cite{FujiiEtal2013, LesparreEtal2012, TanakaEtal2009} and continuous \cite{NagamineEtal1995, AguiarEtal2015, TangEtal2016},  that are more robust since these do not have a high mechanical variation with environmental conditions, are easily constructed at a much lower cost than gaseous and emulsion detectors. Nevertheless, their spatial resolution is not as good as the other detectors since the segments generally used are of the order of centimeters.
 
-This paper presents the computational \textsl{Geant4} modeling of a hybrid Muon Telescope (\textsl{MuTe}) and the estimation of its response under a muon flux at $2650$\,m a.s.l at Cerro Machín Volcano-Colombia. The model includes the materials, geometries, dimensions and the photo-sensitive devices of the detectors (see details in sections \ref{sec:hodoscope-response} and \ref{sec:wcd-response}). 
+This paper presents a detailed computational \textsl{Geant4} modeling of a hybrid Muon Telescope (\textsl{MuTe}) and the estimation of its response under a muon flux at $2650$\,m a.s.l at Cerro Machín Volcano-Colombia. The model includes the materials, geometries, dimensions, and the photo-sensitive devices of the detectors. In the next section, we briefly describe the rationale behind the \textsl{MuTe} design. Section \ref{sec:hodoscope-response} discussed the response from scintillator bar hodoscope to the impacting cosmic ray background. We emphasize in the bar scintillator model and the possible attenuation effects. In section \ref{sec:bar-data}, we compare our simulation results with data emerging from an experimental laboratory setup and study the temperature effect on breakdown voltage for the silicon photo-multiplier (\textsl{SiPM}). Section \ref{sec:wcd-response} presents the response of the Water Cerenkov Detector (\textsl{WCD}) and also compare some of the results with recent lab measurements. Finally in section \ref{sec:conclusions} we summarize some finals remarks and conclusions.
 
 %%%%%%%%%%%%%%%%%%%
-%%%% SECTION 2 %%%%
+%%%% SECTION 1 %%%%
 %%%%%%%%%%%%%%%%%%%
 
 \section{The MuTe instrument design}
-The Muon Telescope (sketched in figure \ref{fig:mute-detector}) is a hybrid detector that combines two technologies: a two-panel Scintillator Bars Hodoscope (\textsl{SBH}), and a Water Cerenkov Detector (\textsl{WCD}), to filter most of the backward \& background noise \cite{NishiyamaMiyamotoNaganawa2014, KusagayaTanaka2015, NishiyamaEtal2016, GomezEtal2017}. This detector is capable of estimating not only the incoming  directions but also a range of energies of the impacting muons \cite{AsoreyEtal2017B, PenarodriguezEtal2019}.
+The Muon Telescope (sketched in figure \ref{fig:mute-detector}) is a hybrid detector that combines two technologies: a two-panel scintillator bar hodoscope, and a \textsl{WCD}, to filter most of the backward \& background noise \cite{NishiyamaMiyamotoNaganawa2014, KusagayaTanaka2015, NishiyamaEtal2016, GomezEtal2017}. This detector is capable of estimating not only the incoming  directions but also a range of energies of the impacting muons \cite{AsoreyEtal2017B, PenarodriguezEtal2019}.
   
  The panels of the hodoscope consist in an array of $30$ vertical $\times 30$ horizontal scintillator bars, of $4$cm wide, $2$cm high and $120$cm long, providing a resolution of $900$ pixels of $4$cm $\times 4$cm each one. This array yields a detection surface of $14.400$cm$^2$. 
  
@@ -84,17 +86,18 @@ The Muon Telescope (sketched in figure \ref{fig:mute-detector}) is a hybrid dete
 \begin{figure}
     \centering
     \includegraphics[scale=0.3]{Figures/mute-detector.png}
-    \caption{The scketch of the hybrid detector \textsl{MuTe}: a two-panel Scintillator Bars Hodoscope in front and a Water Cerenkov Detector at the back. Each panel of the \textsl{SBH} has $900$ pixels of detection to determine the incoming directions of the particles. The \textsl{WCD} is a metal purified water container of $120$cm side, coated inside by the Tyvek with a \textsl{PMT} on top to detect the Cerenkov photons. It is devised to filter most of the backward \& background noise of muography. The mechanical structure has a variable elevation angle to adjust the telescope according to the object under study.} 
+    \caption{The scketch of the hybrid detector \textsl{MuTe}: a two-panel scintillator bar hodoscope in front and a Water Cerenkov Detector at the back. Each panel of the scintillator bar hodoscope has $900$ pixels of detection to determine the incoming directions of the particles. The \textsl{WCD} is a metal purified water container of $120$cm side, coated inside by the Tyvek with a \textsl{PMT} on top to detect the Cerenkov photons. It is devised to filter most of the backward \& background noise of muography. The mechanical structure has a variable elevation angle to adjust the telescope according to the object under study.} 
     \label{fig:mute-detector}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%
 %%%% SECTION 2 %%%%
 %%%%%%%%%%%%%%%%%%%
-\section{Hodoscope response to cosmic background radiation}\label{sec:hodoscope-response}
+\section{Hodoscope response to cosmic ray background radiation}
+\label{sec:hodoscope-response}
 The response of the hodoscope bars refers to the signal produced in the photo-sensor when a minimum ionizing particle (\textsl{MIP}) crosses each scintillator bar. As shown in figure \ref{esquema_centelladora}, charged particles crossing the bars produce scintillation photons, absorbed, re-emitted, and guided to the photo-sensor device by a wavelength shifting (\textsl{WLS}) multi-cladding fiber. 
 
-The bars of \textsl{MuTe} are Dow Styron $663$, made of Polystyrene, doped with $1$\% \textsl{PPO} and $0.03$\% \textsl{POPOP} \cite{PlaBrossRykalin2003}, which place a photon emission peak around the $420$nm wavelength. These bars, coated with $85$\% Polystyrene and $15$\% TiO$_2$ of $0.25$mm thick, have a tunnel of $\sim 3$mm diameter at its center, where there is a \textsl{WLS} multi-cladding fiber (reference BCF92 of Saint Gobain). The fiber diameter is $1$mm, with a core made of Polymethyl methacrylate, having the first clad of Polyethylene, and the second one of Fluorinated Polyethylene \cite{SaintGobain2017}. A mechanical coupling joins the fiber with a silicon photo-multiplier (\textsl{SiPM} S$13360$-$1350$CS of Hamamatsu), with a photo-sensitive surface of $1.3$cm $\times 1.3$cm of $2668$ pixels \cite{Hamamatsu2018}. This device has a spectral detection range from $270$ to $900$nm, with its maximum sensitivity around $450$nm.
+The bars of \textsl{MuTe} are Dow Styron $663$, made of Polystyrene, doped with $1$\% \textsl{PPO} and $0.03$\% \textsl{POPOP} \cite{PlaBrossRykalin2003}, which place a photon emission peak around the $420$nm wavelength. These bars, coated with $85$\% Polystyrene and $15$\% TiO$_2$ of $0.25$mm thick, have a tunnel of $\sim 3$mm diameter at its center, where there is a \textsl{WLS} multi-cladding fiber (reference BCF92 of Saint Gobain). The fiber diameter is $1$mm, with a core made of Polymethyl methacrylate, having the first clad of Polyethylene, and the second one of Fluorinated Polyethylene \cite{SaintGobain2017}. A mechanical coupling joins the fiber with a \textsl{SiPM} S$13360$-$1350$CS of Hamamatsu, with a photo-sensitive surface of $1.3$cm $\times 1.3$cm of $2668$ pixels \cite{Hamamatsu2018}. This device has a spectral detection range from $270$ to $900$nm, with its maximum sensitivity around $450$nm.
 
 \begin{figure}[h!] %Rocal
     \centering
@@ -138,7 +141,7 @@ The mean value of those histograms is around $40$\textsl{pe}. For muons with ene
 \end{split}
 \end{equation}.
 
-The following simulations are for muons with $3$\textsl{GeV} which are the most frequent at the level of our observation point on the Cerro Machín (\textsl{CM}) volcano. That is, from now on the \textsl{MIP} refers to this particle with this energy.
+The following simulations are for muons with $3$\textsl{GeV} which are the most frequent at the level of our observation point on the Cerro Machín volcano. That is, from now on the \textsl{MIP} refers to this particle with this energy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSUBSECTION %%%%%
@@ -154,7 +157,7 @@ Figure \ref{atenuacion_barra} shows the results of this simulation. If the parti
 \begin{equation}
 F(x)= \text{0.468}e^{-0.003(2-x)} + \text{0.531}e^{0.005(2-x)}.
 \end{equation}
-From this plot, we have that the attenuation in the \textsl{Bar}-\textsl{Fiber}-\textsl{SiPM} system is around $7$\%, that is agree with the experimental results, around $11\%$, given by figure \ref{experimental attenuation}.
+From this plot, we have that the attenuation in the \textsl{Bar}-\textsl{Fiber}-\textsl{SiPM} system is around $7$\%, that is agree with the experimental results, around $11\%$, given by figure \ref{experimental_attenuation}.
 \begin{figure}[h!]
     \centering
         \includegraphics[scale=0.41]{Figures/atenuacion_barra_2.png}
@@ -163,7 +166,7 @@ From this plot, we have that the attenuation in the \textsl{Bar}-\textsl{Fiber}-
 \end{figure}
 
 The \textsl{MIP} detection with scintillator bar generates a number of \textsl{pe} in the \textsl{SiPM} at a time $t$. Now we want to estimate the time needed to collect the total number of photo-electrons produced. This total is about $40$\textsl{pe} at $x=2$cm, while at $x=118$cm it is about $37$\textsl{pe}. From the top of  figure \ref{cumulative} it can be noticed that $40$\% of the total photo-electrons occurred in the first $10$ns when the \textsl{MIP} has entered at $2$cm of the \textsl{SiPM}. Observe from the bottom of the figure \ref{cumulative} --when the \textsl{MIP} has entered at $118$cm of the \textsl{SiPM}--, that only 12\% of the \textsl{pe} is produced in the same time. In both cases, the total number of \textsl{pe} is reached around $80$ns, that is, the average time necessary to collect the total of \textsl{pe} produced by the passage of a muon, at any point of impact in the bar.
-\begin{figure}
+\begin{figure}[ht]
     \centering
     \includegraphics[scale=0.8]{Figures/cumulativo_1.pdf}
     \includegraphics[scale=0.8]{Figures/cumulativo_2.pdf}
@@ -187,7 +190,8 @@ The \textsl{Geant4} model allows estimating how good is the coupling \textsl{SiM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Experimental results from the scintillator detector}\label{sec:bar-data}%Rolando
+\subsection{Experimental results from the scintillator detector}
+\label{sec:bar-data}%Rolando
 The plastic scintillators of the \textsl{MuTe} panels are active detectors that work as counters of charged particles. This allows the indirect detection of ionizing radiation, due to the light --produced in the scintillator at the passage of a charged particle-- travels through the optical fiber towards the \textsl{SiPM}, where it produces an electrical signal which can be analyzed offline. The diagram of this \textsl{Bar}-\textsl{Fiber}-\textsl{SiPM} system is represented in figure \ref{esquema_centelladora}. 
 
 Since the \textsl{SiPMs} have intrinsic noise,  it is essential to know well the detector to define a methodology with a discriminant to detect particles and correctly interpret the measured data. A first study was made to guarantee that the \textsl{SiPM} keeps working in Geiger mode at any temperature. Section \ref{breakdown-voltage} presents the results of the dependence of the breakdown voltage with the temperature.
@@ -197,7 +201,8 @@ On the other hand, given that the scintillator, the fiber, and the \textsl{SiPM}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Dependence of the breakdown voltage with the temperature}\label{breakdown-voltage}
+\subsubsection{Dependence of the breakdown voltage with the temperature}
+\label{breakdown-voltage}
 To study the response of each scintillator bar, we first studied the \textsl{SiPMs} thermal stability. \textsl{SiPMs} can change their mode of operation if the input voltage ($V_{Bias}$) is less than the breakdown voltage ($V_B$), and this parameter varies with temperature. Thus we need to find this functionality to guarantee that \textsl{SiPMs} always works in Geiger mode 
 
 To establish this dependence, we build a temperature-controlled box regulated by a TEC1-12706 thermoelectric Peltier, mounted on an aluminum frame, where we place the mechanical coupling of the \textsl{SiPM}.  The control system consists of two sensors: one to vary the temperature and the other one to measure it on the \textsl{SiPM}. Figure \ref{timesetup} displays the results for the operation of this system for different target temperatures ($10^{\circ}$C, $20^{\circ}$C, $40^{\circ}$C and $50^{\circ}$C).  Note that the time required to reach the target temperature, in each case, is around $(600 \pm 50)$s.
@@ -208,7 +213,7 @@ To establish this dependence, we build a temperature-controlled box regulated by
    \label{timesetup}
 \end{figure}
 
-Next, DarkCurrent \cite{Renker2006} measurements follow in the range for $40$V to $60$V, for different temperatures and figure \ref{temperature} illustrates the linear temperature dependence of  $V_B$. It is clear that  for each $10^{\circ}$C of temperature, the $V_B$ changes around $0.45$V.
+Next, Dark-Current \cite{Renker2006} measurements follow in the range for $40$V to $60$V, for different temperatures and figure \ref{temperature} illustrates the linear temperature dependence of  $V_B$. It is clear that  for each $10^{\circ}$C of temperature, the $V_B$ changes around $0.45$V.
 \begin{figure}[h!] %Rocal
     \centering
         \includegraphics[scale=0.49]{Figures/voltajeRuptura.png}
@@ -242,7 +247,6 @@ $f(x)~=~0.88~+a*exp(-x*b)$ with the parameters $a=0.126652$, $b= 0.0205653$ with
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
-% voy por aquí
 \subsection{Simulated attenuation in the hodoscope}
 \label{sec:hodoscope-response-two} %Adriana
 The probability of producing photo-electrons in the \textsl{SiPM} of horizontal and vertical bars is a crucial concept to determine the response of each panel of the hodoscope. The bar simulation generates the response of a detection panel to \textsl{MIPs} . Thus, independent events in a particular pixel $P^{F}_{i,j}$ is given by 
@@ -259,7 +263,7 @@ Figure \ref{atenuacion_panel_bw} displays the probability of photo-electrons pro
    \caption[Response of the hodoscope panels]{Production probability of photo-electrons in each of the pixels of a panel of the hodoscope by muons of 3   \textsl{GeV}  of energy. Each frame represents a detection pixel and it can be seen that there is a difference between two zones of the panel. In the pixel $P_{11}$, where the \textsl{SiPM} of the horizontal bar and the vertical bar is only 2 cm from the point of impact of the muon, is produced the maximum number of \textsl{pe} while the \textsl{pe} decreases until 12\% for pixels far from the SiPMs. This result is valid both for the front and the rear panel.}\label{atenuacion_panel_bw}
 \end{figure}
 
-These results are valid for both the front panel and the rear panel, and from \ref{atenuacion_panel_bw}, it clear that there is a difference between the zones. This difference around $12$\% can be associated with the attenuation of photons in the fiber, i.e., the pixels that are closer to the \textsl{SiPM} count more photo-electrons.  
+These results are valid for both the front panel and the rear panel, and from figure \ref{atenuacion_panel_bw}, it clear that there is a difference between the zones. This difference around $12$\% can be associated with the attenuation of photons in the fiber, i.e., the pixels that are closer to the \textsl{SiPM} count more photo-electrons.  
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -267,7 +271,7 @@ These results are valid for both the front panel and the rear panel, and from \r
 %%%%%%%%%%%%%%%%%%%
 \section{The water Cerenkov detector response to cosmic background radiation}
 \label{sec:wcd-response}
-The \textsl{WCD} indirectly detects charged particles, counting the Cerenkov photons that originate when the particle travels a certain length in the water. The photo-multiplier tube counts photo-electrons according to its quantum efficiency, which depends on the wavelength of the photon that impacts.  In our case, the \textsl{PMT} Hamamatsu R5912 of the \textsl{MuTe} has a maximum detection probability value of $25$\% for photons with $\lambda = 400$ nm \cite{Hamamatsu2018}. The \textsl{PMT} located at the center top of the \textsl{WCD}, which is a metal container of purified water with $120$\,cm side, coated with a diffusive lining of Tyvek 
+The \textsl{WCD} indirectly detects charged particles, detecting the Cerenkov photons generated by particles traveling through the contained water. The photo-multiplier tube counts photo-electrons according to its quantum efficiency, which depends on the wavelength of the impacting photon.  In our case, the \textsl{PMT} Hamamatsu R5912 of the \textsl{MuTe} has a maximum detection probability value of $25$\% for photons with $\lambda = 400$ nm \cite{Hamamatsu2018}. The \textsl{PMT} located at the top of the metal container of purified water with $120$\,cm side, coated with a diffusive lining of Tyvek 
 
 The following sections will discuss some of the results from the detector simulation, as well as the first data recorded by the  \textsl{WCD}.
 
@@ -275,30 +279,37 @@ The following sections will discuss some of the results from the detector simula
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The WCD model}\label{sec:wcd-model}
-The simulated water container in \textsl{Geant4} is a cube of length $l_c=1.21$m, made of stainless steel. The water occupies a cube of $ l=1.20$m side with a refractive index $n$, which varies between $1.3435$ and $1.3608$, and a photon absorption length ranging from $0.69$m to $2.90$m according to its energy. In the walls of the water cube, the Tyvek is modeled as an optical surface with reflection index $n_{\mathrm{Tyvek}} = 1 $, which diffuses the Cerenkov photons.
+ In \textsl{Geant4} the water container is a stainless steel cube of length $l_c=1.21$m, with water inside water in a cube of $ l=1.20$m side. The water has a refractive index $n$, which varies between $1.3435$ and $1.3608$, and a photon absorption length ranging from $0.69$m to $2.90$m according to its energy. In the walls of the cube, the Tyvek is modeled as an optical surface with a reflection index $n_{\mathrm{Tyvek}} = 1 $, which diffuses the Cerenkov photons.
 
 For the \textsl{PMT}, the photo-cathode was simulated as an air half-ellipsoid with semiaxes $s_x=10.1$cm, $ s_y = 10.1$cm and $s_z=6.5$cm, located on top of the water cube. The quantum efficiency (\textsl{QE}) of this device was introduced in the code, taking into account reference Hamamatsu R5912 \cite{Hamamatsu2018}. The QE determines whether photons reaching the outer surface of the photo-cathode will be detected or not. These photons originate photo-electrons (denoted as \textsl{pe}) by photoelectric effect. The \textsl{WCD} response  is given in terms of \textsl{pe} generated by each particle interacting with it.
 
 Notice that the inclusion of the \textsl{QE} of the \textsl{PMT} in the code, as a function dependent on $\lambda$, represents an improvement over the simulations of \textsl{WCDs} carried out previously within the research group. An unique efficiency of $25$\% is taken into account in \cite{CalderonAsoreyNunez2015}, for the wavelength range between $330$nm and $570$nm. Therefore, the new code offers more precise results of the pulses produced by the passage of particles in water. 
  
+ \begin{figure}
+    \centering
+    \includegraphics[scale=0.45]{Figures/WCDpedata.png}
+    \caption{Photo-electron histogram for one hour of data recorded by the \textsl{WCD}. }
+    \label{WCDpe}
+\end{figure}
+
+ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
  \subsubsection{Estimation of the Vertical Equivalent Muon unit}
- To measure the deposited energy by the incident particles, an absolute calibration of the detector is needed. The Vertical Equivalent Muon (\textsl{VEM}) is generally adopted as the measurement unit of calibration \cite{EtchegoyenEtal2005}. This is defined as the average charge collected in the \textsl{PMT} when a high-energy muon crosses the entire detector vertically. In the calibration of the \textsl{WCD} these muons can be easily identified by installing plastic scintillators above and below the detector, centered on their axis \cite{EtchegoyenEtal2005}, so the muon can be detected before and after leaving the \textsl{WCD}.
+The Vertical Equivalent Muon (\textsl{VEM}) --defined as the average charge collected in the \textsl{PMT} when a high-energy muon vertically crosses the entire detector --  is generally adopted as the unit to calibrate the energy deposited by incident particles and is independent of the detection position.   Muons can be easily identified by installing plastic scintillators above and below the \textsl{WCD} \cite{EtchegoyenEtal2005}.
  
-It is not necessary to implement this method in the detector simulation, due to the \textsl{Geant4} code allows to inject muons with a chosen energy and a initial direction. In this case, $100000$ muons were injected with $3$\textsl{GeV}   of initial energy, in direction $-\hat{z}$ towards the water, and the initial position given by the point $ P=(80, 80, 121)$ cm, over the \textsl{WCD}. 
+\textsl{Geant4} code allows the injection of muons with a chosen energy and direction. We model injecting  $100000$ vertical muons with $3$\textsl{GeV}  in direction $-\hat{z}$ towards the water, and the initial position given by the point $ P=(80, 80, 121)$ cm, over the \textsl{WCD}. The portion of the number of Cherenkov photons, $N$, that reaches the external surface of the photo-cathode, is $N_{\mathrm{PMT}}$. 
 
-As a result, the average number of Cherenkov photons, $N$, produced in the water by those incident particles that have traveled a distance $l$ in water was obtained. The portion of $N$ that reaches the external surface of the photo-cathode is named as $N_{\mathrm{PMT}}$. Finally, the $ N_{\mathrm{PMT}}$ produces a number of photo-electrons, $N_{\mathrm{pe}}$, depending on its wavelength. From this, the \textsl{WCD} efficiency to detect muons was estimated, i.e. a \textsl{VEM} of $3$\textsl{GeV} generates around $46857$ Cherenkov photons in $120$cm of water crossed, only $1617$ of those photons reach the external surface of the photo-cathode and, from its quantum efficiency, around $203.2$ \textsl{pe} was produced in average. Thus, the system has a muon detection efficiency of $0.4$\%, that is,
+ The $ N_{\mathrm{PMT}}$,  depending on its wavelength, produces a number of photo-electrons, $N_{\mathrm{pe}}$. We have estimated the efficiency of the \textsl{WCD} with the following chain of events. One \textsl{VEM} of $3$\textsl{GeV} generates around $46857$ Cherenkov photons in $120$cm. Next, only $1617$ of those photons reach the external surface of the photo-cathode, and, due to its quantum efficiency, around an average $203.2$ \textsl{pe} was produced. Thus, the system has a muon detection efficiency of $0.4$\%, that is,
 \begin{equation}
 \eta_{\mathrm{WCD}}=\frac{N_{\mathrm{FE}}}{N} 100\%=\frac{203.2}{46857}100\%=0\textnormal{.}4\%
 \end{equation}
 
-Since the unit of calibration \textsl{VEM} is independent of the site of detection, the simulated value ($\sim 203.2$ pe) is compared with the value obtained from the first data of the \textsl{WCD} located in the laboratory, that is around $\sim 167.5$pe as shown figure \ref{WCDpe}. 
+Figure \ref{WCDpe} displays the comparison of  the \textsl{VEM} simulated value ($\sim 203.2$ pe) with the measured  $\sim 167.5$pe. This figure represents the \textsl{pe} histogram for one hour of data for a discrimination threshold of $110$mV. The histogram has two prominent humps, the electromagnetic (electrons, positrons and gammas) hump at $\sim 70$\textsl{pe} and the muonic hump at $\sim 167.5$pe \cite{PenarodriguezEtal2019}.  
 
-In order to compare the \textsl{WCD} response to muons and electrons of typical energy at the \textsl{CM} volcano, we compute the same simulations for $100000$ vertical electrons (denoted as \textsl{VE}) of $20$\textsl{MeV} at the same initial direction and point $P$. The histogram of the number of photo-electrons produced in the figure \ref{vem_ve} with the \textsl{VEM} histogram. The mean value of the \textsl{VE} is smaller than the \textsl{VEM}, around $16.7$\textsl{pe} that represents a $8$\% of it.
+To compare the \textsl{WCD} response to muons and electrons  at the Cerro Machín Volcano, we run simulations for $100000$ vertical electrons, \textsl{VE}, of $20$\textsl{MeV} at the same initial direction and point $P$. Figure \ref{vem_ve} presents the corresponding histogram of the number of photo-electrons. The mean value of the \textsl{VE} is smaller than the \textsl{VEM}, around $16.7$\textsl{pe} that represents a $8$\% of it.
 
-Here is also obtained the characteristic pulse for \textsl{VEM} and \textsl{VE} as the number of \textsl{pe} vs time, shown in the figure \ref{pulse_vem_ve}. From those histogram fits we can obtain the attenuation time $\tau$ and lenght $l_a$, of the signal. A summarize of the results and a comparison between both particles is shown in the table \ref{t:comparacion}.
-
+Next, in the number of \textsl{pe} vs time displayed in plot \ref{pulse_vem_ve} we sketch  the \textsl{VEM} and \textsl{VE} pulses. From those histogram fits, we can obtain the attenuation time $\tau$ and signal length $l_a$.  Finally, the table \ref{t:comparacion} sumarize the comparison between both charged particles.
 \begin{figure}
     \centering
     \includegraphics[scale=0.38]{Figures/vem_ve.png}
@@ -334,20 +345,16 @@ Here is also obtained the characteristic pulse for \textsl{VEM} and \textsl{VE} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% SUBSECTION %%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{WCD response to the cosmic background radiation}%Adriana
-The estimation of the \textsl{WCD} response to the cosmic background radiation flux ($\Xi$), at the CM volcano level, was performed with the \textsl{LAGO} \textsl{ARTI} framework \cite{SarmientoEtal2019}. This toolkit employs a \textsl{Geant4} code to estimate the number of Cerenkov photons detected by the \textsl{PMT}, produced due the interaction of the particles with the water of the \textsl{WCD}. The quantum efficiency of the \textsl{MuTe} \textsl{PMT}, R5912-Hamamatsu, was taken into account to perform this simulation. The \textsl{ARTI} framework uses as input the energy and the momentum of the particles from $\Xi$. This flux is obtained using the \textsl{CORSIKA} code and a geomagnetic correction is applied with the \textsl{MAGCOS} code. To obtain the histogram of the number of photo-electrons, the flux $\Xi$, given by
-\begin{equation}
-\Xi = \frac{N_{\mathrm{Sec}}}{1\,\mathrm{h}\, 1\,\mathrm{m}^2}, 
-\end{equation}
-is redistributed in a circular area $A$ located at 1 cm of the top of the \textsl{WCD}. The larger the area the larger the number of particles coming in almost all the zenith angles ($\theta$). In order to get the response of particles coming from $0\leq \theta \leq 80^{\circ}$ we set $A=480$m$^2$ in the \textsl{ARTI} framework. Then the flux is re-written as
+\subsubsection{WCD response to the cosmic ray background radiation}%Adriana
+The \textsl{LAGO} \textsl{ARTI} framework allows us to estimate of the \textsl{WCD} response to the cosmic ray background radiation flux ($\Xi$) at any site \cite{SarmientoEtal2019}. This toolkit employs a \textsl{Geant4} code to estimate the number of Cerenkov photons detected by the \textsl{PMT} and employing its quantum efficiency. The \textsl{ARTI} framework uses the energy and the momentum of the particles from $\Xi$ as input and obtains the flux by using the \textsl{CORSIKA} code \cite{HeckEtal1998}, with a geomagnetic correction form \textsl{MAGCOS} code \cite{Desorgher2003}. For other examples of the precise simulation chain see  \cite{AsoreyEtal2015B, AsoreyNunezSuarez2018}. 
 
+Figure \ref{fig:flux} plots the histogram of the number of photo-electrons, produced at Cerro Machín. The flux $\Xi_{CM}$, 
 \begin{equation}
 \Xi_{CM} = \frac{N_{\mathrm{Sec}}}{7.5\,\mathrm{s}\, 480\,\mathrm{m}^2}, 
 \end{equation}
-where $N_{\mathrm{Sec}}=$ is the number of secondaries at CM volcano.
+is calculated over a circular area $A=480$m$^2$ placed $1$cm above the detector, with a zenithal aperture of $0\leq \theta \leq 80^{\circ}$, and where $N_{\mathrm{Sec}}=$ represents the number of secondaries at this particular site.
 
-The histogram of the number of photo-electrons produced in the \textsl{WCD} due to the flux $\Xi_{CM}$ is shown in the figure \ref{fig:flux}. The different curves are the contribution of the particles components to the total response (empty circles). It can be noted that this curve has two main peaks, the first one with a contribution of the electromagnetic component and the second one with the muonic component.
-
+ The different curves represent the contribution of various particles to the total response (empty circles). Note that this curve has two main peaks, the first one with a contribution of the electromagnetic component and the second one with the muonic component.
 \begin{figure}
     \centering
     \includegraphics[scale=0.4]{Figures/flux.png}
@@ -355,59 +362,31 @@ The histogram of the number of photo-electrons produced in the \textsl{WCD} due 
     \label{fig:flux}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%% SUBSECTION %%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{First WCD measurements}\label{sec:wcd-data}%Jesus
-
-The \textsl{WCD} acquisition system records two signals from the \textsl{PMT}, anode and last dynode. The dynode pulses were amplified 20 times for increasing the measuring range. These two channels were digitized by a 10 bits analog-to-digital converter.
-
-The digitized electric charge $Q_{ADC}$ recorded by the \textsl{WCD} electronics for a charged particle is defined as follows,
-
-\begin{equation}
-\label{n_FE}
-Q_{ADC} =  \frac{1}{RG_{a}}\sum_{i=0}^{N-1} V_{ADC} \Delta_T
-\end{equation}
-
-where $V_{ADC}$ is the digitized voltage, $\Delta_T$ is the time sampling step, $G_a$ is the amplification factor of the electronics front-end, $R$ is the sensitive resistance and $N$ es the number of samples. Then the number of detected \textsl{pe} is,
-\begin{equation}
-\label{n_FE}
-N_{pe} = \frac{Q_{ADC}}{eG_{PMT}}
-\end{equation}
-
-where $G_{PMT}$ is the \textsl{PMT} gain and $e$ is the electron charge.
-
-In this case, the \textsl{PMT} was biased with 1kV reaching a $G_{PMT}\sim$0.3$\times10^6$. The conditioning electronics has an amplification factor $G_a = 20$ and $R = 50 \Omega$. The signal is digitized with a sampling frequency of $40$MHz ($\Delta_T$ = 25ns) and stored in a vector of $N$ = 12.  
-
-Fig. \ref{WCDpe} shows the \textsl{pe} histogram for one hour of data for a discrimination threshold of $110$mV. The histogram has two prominent humps, the electromagnetic (electrons, positrons and gammas) hump at $\sim 70$\textsl{pe} and the muonic hump at $\sim 167.5$pe.
-
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.45]{Figures/WCDpedata.png}
-    \caption{Photo-electron histogram for one hour of data recorded by the \textsl{WCD}. }
-    \label{WCDpe}
-\end{figure}
-
-
 
 %%%%%%%%%%%%%%%%%%%
 %%%% SECTION 6 %%%%
 %%%%%%%%%%%%%%%%%%%
-\section{Conclusions}\label{sec:conclusions}%Todos
+\section{Conclusions}
+\label{sec:conclusions}%Todos
+As we have stated above, MuTe combines two detection techniques: a hodoscope with two detection planes of plastic scintillator bars, and a \textsl{WCD}, in an innovative setup which differentiates it from some previous detectors. 
+\begin{itemize}
+    \item \textbf{Scintillators panels:} Inspired by the experiences of other volcano muography experiments \cite{UchidaTanakaTanaka2009,GibertEtal2010}, we have designed two X-Y  arrays of $30 \times 30$ plastic scintillating strips ($120$cm$\times 4$cm$\times 1$cm), made with Styron$^{\textrm{TM}}$ 665-W polystyrene doped with a mixture of liquid organic scintillators: 1\% of 2,5-diphenyloxazole (PPO) and 0.03\% of 1,4-bis (5-phenyloxazol-2-yl) benzene (POPOP). Each array has $900$ pixels of $4$ cm$\times 4$ cm = $16$ cm$^2$, which sums up $14,400$ cm$^2$ of detection surface which can be separated up to $D=250$ cm.
+    \item \textbf{Water Cherenkov Detector:} The \textsl{WCD} is a purified water cube of $120$\, cm side, located behind the rear scintillator panel, which acts as an absorbing element and as a third active coincidence detector. Due to its dimensions and location, it filters most of the background noise (low energies electrons, protons, and muons moving backward) which could cause overestimation in the hodoscope counts \cite{NishiyamaEtal2016}, and it is capable of isolating the muonic component of the incident particle flux.  From the charge histogram, obtained by time integration of the individual pulses measured in the WCD, it is possible to separate two components of the incident flux: electromagnetic part (photon, electron \& positron) and the $\mu-$component \cite{AsoreyEtal2015B}.
+\end{itemize}
 
-From the \textsl{Geant4} model of the scintillator detector, it was obtained that the number of \textsl{pe} decreases around $7$\% with respect to those produced at the end near of the \textsl{SiPM}. This reduction occurs due to the attenuation of the photons that travel in the fiber, since, the more distance they travel within it, the more energy they lose and therefore the material absorbs some photons before they reach the \textsl{SiPM}. This result is in agreement with that obtained with the experimental setup, that is, around $11$\% attenuation. This attenuation seems to be insignificant in the bar, but it is more noticeable in the hodoscope panels, since, the difference between the closest corner to the \textsl{SiPMs} and the furthest, is around $12$\%.
+The Colombian MuTe combines particle identification techniques to discriminate noise background from data. It filters the primary noise sources for muography, i.e., the soft-component ($e^{\pm}$) of Extensive Air Showers (EAS) and scattered/upward-coming muons. Particle deposited energy identifies Electrons/positrons events in the WCD, while scattered and backward muons are rejected using a pico-second Time-of-Flight system.
 
-Regarding to the \textsl{WCD} response, the value of the \textsl{VEM} obtained with the simulations and that obtained in the laboratory, are in the same order of magnitude, but present a percentage difference of $18$\% with respect to the modeled value. This difference can be related by the various components of the electronics, where part of the signal can be lost.
+From the \textsl{Geant4} modeling for the scintillator detector, we obtained that the number of \textsl{pe} decreases around $7$\% with respect to those produced at the end near of the \textsl{SiPM}. This reduction occurs due to the attenuation of the photons that travel in the fiber, since, the more distance they travel within it, the more energy they lose and lesser photons reach the \textsl{SiPM}s. This result is in agreement with the $11$\% attenuation obtained with the experimental setup described in section \ref{sec:bar-data}. This attenuation seems to be insignificant in the bar, but it is more noticeable in the hodoscope panels, since, the difference between the closest corner to the \textsl{SiPMs} and the furthest, is around $12$\%.
+
+Regarding the \textsl{WCD} response, the value of the \textsl{VEM} obtained with the simulations and that obtained in the laboratory measurements, are in the same order of magnitude, but present a percentage difference of $18$\% with respect to the simulated value. This difference can be related by the various components of the electronics, where part of the signal can be lost.
 
 From the results obtained, a muon detection trigger for the \textsl{MuTe} is proposed in terms of the energy deposited in each of its components. That is, the muon must deposit around $2.08$\textsl{MeV} in two scintillator bars on the front panel, then the same energy in two bars on the rear panel of the hodoscope, to finally discriminate the signal from the noise in the \textsl{WCD}. Then, the muon must deposit around 240   \textsl{MeV}  of energy in the \textsl{WCD} to be counted as an event.
 
-%Comparación de la atenuación en la barra obtenida por simulación y experimentalmente.
 
-%Atenuación en el panel, no se puede comparar porque la atenuación "teórica" se hizo sacando la integral bajo la curva de cada pulso para obtener el número de fotoelectrones, mientras que la experimental se hizo comparando la atenuación de los picos 
-%Comparación del VEM te´rico y experimental: están en el mismo orden de magnitud pero hay una diferencia porcentual del 18% respecto al valor teórico
-%decir que tanto simulaciones como resultados fueron obtenidos en bucaramanga, con el "mismo flujo" de partículas.
-%Description of the proposed trigger for the detection of muons from the results obtained from the simulation
+\section*{Acknowledgments}
+The authors acknowledge the financial support of  Departamento Administrativo de Ciencia, Tecnolog\'{\i}a e Innovaci\'on of Colombia (ColCiencias) under contract FP44842-082-2015 and to the Programa de Cooperaci\'on Nivel II (PCB-II) MINCYT-CONICET-COLCIENCIAS 2015, under project CO/15/02.  We are also very thankful to LAGO and to the Pierre Auger Collaboration for their continuous support.  The simulations in this work were partially possible thanks to The Red Iberoamericana de Computaci\'on de Altas Prestaciones (RICAP, 517RT0529), co-funded by the Programa Iberoamericano de Ciencia y Tecnolog\'{\i}a para el Desarrollo (CYTED) under its Thematic Networks Call. We also thank the computational support from the Universidad Industrial de Santander (SC3UIS) High Performance and Scientific Computing Centre. Finally, we would like to thank Vicerrector\'{\i}a Investigaci\'on y Extensi\'on Universidad Industrial de Santander for its permanent sponsorship. One of us, DSP, wants to thank the Escuela de F\'{\i}sica, the Grupo de Investigaci\'on en Relatividad y Gravitaci\'on, Grupo Halley de Astronom\'{\i}a y Ciencias Aeroespaciales and Vicerrector\'{\i}a Investigaci\'on y Extensi\'on of Universidad Industrial de Santander for the hospitality during his post-doctoral fellowship.
+
+%Our simulation codes can be found at \texttt{https://github.com/AstroparticulasBucaramanga} and other pertinent data can be also obtained from \texttt{https://zenodo.org/record/807741\#.WUMdlMaZPex }
 
 
 \bibliography{RefMuTeSimul}
@@ -442,3 +421,28 @@ From the results obtained, a muon detection trigger for the \textsl{MuTe} is pro
    % \caption{Normalized hit histogram for the frontal panel with 15 hours of data. The locations of the \textsl{SiPMs} are in the bottom-left corner (0,0). In the furthest corner (120cm, 120cm) the detection rate decrease down to 30$\%$. }
     %\label{PanelData}
 %\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% SUBSECTION %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{First WCD measurements}
+\label{sec:wcd-data}%Jesus
+% Voy por aquí
+The \textsl{WCD} acquisition system records two signals from the \textsl{PMT}, anode, and the last dynode amplified 20 times to increase the measuring range with a 10 bits analog-to-digital converter digitizing both channels.
+
+The digitized electric charge $Q_{ADC}$ recorded by the \textsl{WCD} electronics is defined,
+\begin{equation}
+\label{n_FE}
+Q_{ADC} =  \frac{1}{RG_{a}}\sum_{i=0}^{N-1} V_{ADC} \Delta_T
+\end{equation}
+where $V_{ADC}$ is the digitized voltage, $\Delta_T$ is the time sampling step, $G_a$ is the amplification factor of the electronics front-end, $R$ is the sensitive resistance and $N$ es the number of samples. 
+
+Then the number of detected \textsl{pe} is,
+\begin{equation}
+\label{n_FE}
+N_{pe} = \frac{Q_{ADC}}{eG_{PMT}}
+\end{equation}
+where $G_{PMT}$ is the \textsl{PMT} gain and $e$ is the electron charge.
+
+In this case, the \textsl{PMT} was biased with $1$kV reaching a $G_{PMT}\sim$0.3$\times10^6$. The conditioning electronics has an amplification factor $G_a = 20$ and $R = 50 \Omega$. The signal is digitized with a sampling frequency of $40$MHz ($\Delta_T$ = 25ns) and stored in a vector of $N$ = 12.  
+
